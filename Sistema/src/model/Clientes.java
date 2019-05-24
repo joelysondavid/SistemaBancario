@@ -20,6 +20,10 @@ public class Clientes {
         this.telefone = telefone;
     }
     
+    public Clientes(){
+    
+    }
+    
     public void cadastrarCliente(){
         
     }
