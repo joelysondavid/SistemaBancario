@@ -4,10 +4,7 @@ import controller.ClientesControl;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-<<<<<<< HEAD
-=======
 import model.ClientesDAO;
->>>>>>> master
 
 /**
  *
@@ -18,16 +15,11 @@ public class FRM_Clientes extends javax.swing.JFrame {
     /**
      * Creates new form FRM_Clientes
      */
-<<<<<<< HEAD
-    public FRM_Clientes() {
-        initComponents();
-=======
     private ClientesControl clientesCtrl = new ClientesControl(FRM_Clientes.this);
 
     public FRM_Clientes() throws SQLException {
         initComponents();
         clientesCtrl.mostrarClientes();
->>>>>>> master
     }
 
     /**
@@ -39,11 +31,7 @@ public class FRM_Clientes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<<<<<<< HEAD
-        panelNovoCliente = new javax.swing.JPanel();
-=======
         panelCliente = new javax.swing.JPanel();
->>>>>>> master
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -57,10 +45,6 @@ public class FRM_Clientes extends javax.swing.JFrame {
         txtCPF_CNPJ = new javax.swing.JTextField();
         btnCadastrar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
-<<<<<<< HEAD
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-=======
         btnDel = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         txtProcurar = new javax.swing.JTextField();
@@ -71,7 +55,6 @@ public class FRM_Clientes extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Clientes");
->>>>>>> master
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setText("Novo Cliente");
@@ -99,12 +82,9 @@ public class FRM_Clientes extends javax.swing.JFrame {
         });
 
         btnCadastrar.setText("Cadastrar");
-<<<<<<< HEAD
-=======
         btnCadastrar.setMaximumSize(new java.awt.Dimension(90, 25));
         btnCadastrar.setMinimumSize(new java.awt.Dimension(90, 25));
         btnCadastrar.setPreferredSize(new java.awt.Dimension(95, 25));
->>>>>>> master
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarActionPerformed(evt);
@@ -112,68 +92,6 @@ public class FRM_Clientes extends javax.swing.JFrame {
         });
 
         btnCancelar.setText("Cancelar");
-<<<<<<< HEAD
-
-        javax.swing.GroupLayout panelNovoClienteLayout = new javax.swing.GroupLayout(panelNovoCliente);
-        panelNovoCliente.setLayout(panelNovoClienteLayout);
-        panelNovoClienteLayout.setHorizontalGroup(
-            panelNovoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNovoClienteLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(120, 120, 120))
-            .addGroup(panelNovoClienteLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(panelNovoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelNovoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtTelefone)
-                    .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelNovoClienteLayout.createSequentialGroup()
-                        .addComponent(btnCadastrar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                        .addComponent(btnCancelar))
-                    .addComponent(txtEndereco, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCPF_CNPJ, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(55, 55, 55))
-        );
-        panelNovoClienteLayout.setVerticalGroup(
-            panelNovoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelNovoClienteLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(panelNovoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelNovoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelNovoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtCPF_CNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelNovoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelNovoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addGroup(panelNovoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCadastrar)
-                    .addComponent(btnCancelar))
-                .addContainerGap(41, Short.MAX_VALUE))
-=======
         btnCancelar.setPreferredSize(new java.awt.Dimension(90, 25));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -319,7 +237,6 @@ public class FRM_Clientes extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(270, 270, 270))
->>>>>>> master
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -328,27 +245,18 @@ public class FRM_Clientes extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-<<<<<<< HEAD
-                .addComponent(panelNovoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-=======
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelTabela, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
->>>>>>> master
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-<<<<<<< HEAD
-                .addComponent(panelNovoCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-=======
                 .addComponent(panelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(panelTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 186, Short.MAX_VALUE)
->>>>>>> master
                 .addContainerGap())
         );
 
@@ -366,21 +274,13 @@ public class FRM_Clientes extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
 
-<<<<<<< HEAD
-        ClientesControl clientesCtrl = new ClientesControl(FRM_Clientes.this);
-        try {
-            clientesCtrl.insertCliente();
-=======
         try {
             getClientesCtrl().insertCliente();
->>>>>>> master
         } catch (SQLException ex) {
             Logger.getLogger(FRM_Clientes.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
-<<<<<<< HEAD
-=======
     private void btnDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelActionPerformed
         try {
             getClientesCtrl().deleteCliete();
@@ -401,7 +301,6 @@ public class FRM_Clientes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
->>>>>>> master
     /**
      * @param args the command line arguments
      */
@@ -432,15 +331,11 @@ public class FRM_Clientes extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-<<<<<<< HEAD
-                new FRM_Clientes().setVisible(true);
-=======
                 try {
                     new FRM_Clientes().setVisible(true);
                 } catch (SQLException ex) {
                     Logger.getLogger(FRM_Clientes.class.getName()).log(Level.SEVERE, null, ex);
                 }
->>>>>>> master
             }
         });
     }
@@ -448,34 +343,24 @@ public class FRM_Clientes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnCancelar;
-<<<<<<< HEAD
-=======
     private javax.swing.JButton btnDel;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton jButton1;
->>>>>>> master
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-<<<<<<< HEAD
-    private javax.swing.JPanel panelNovoCliente;
-=======
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelCliente;
     private javax.swing.JPanel panelTabela;
     private javax.swing.JTable tbClientes;
->>>>>>> master
     private javax.swing.JTextField txtCPF_CNPJ;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtNome;
-<<<<<<< HEAD
-=======
     private javax.swing.JTextField txtProcurar;
->>>>>>> master
     private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 
@@ -595,22 +480,14 @@ public class FRM_Clientes extends javax.swing.JFrame {
      * @return the panelNovoCliente
      */
     public javax.swing.JPanel getPanelNovoCliente() {
-<<<<<<< HEAD
-        return panelNovoCliente;
-=======
         return panelCliente;
->>>>>>> master
     }
 
     /**
      * @param panelNovoCliente the panelNovoCliente to set
      */
     public void setPanelNovoCliente(javax.swing.JPanel panelNovoCliente) {
-<<<<<<< HEAD
-        this.panelNovoCliente = panelNovoCliente;
-=======
         this.panelCliente = panelNovoCliente;
->>>>>>> master
     }
 
     /**
@@ -683,8 +560,6 @@ public class FRM_Clientes extends javax.swing.JFrame {
         this.txtTelefone = txtTelefone;
     }
 
-<<<<<<< HEAD
-=======
     /**
      * @return the clientesCtrl
      */
@@ -769,5 +644,4 @@ public class FRM_Clientes extends javax.swing.JFrame {
         this.txtProcurar = txtProcurar;
     }
 
->>>>>>> master
 }

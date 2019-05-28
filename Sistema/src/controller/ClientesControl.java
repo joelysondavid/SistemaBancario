@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package controller;
-
-import java.sql.SQLException;
-=======
 package controller;
 
 import framework.DaoConexao;
@@ -15,7 +5,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
->>>>>>> master
 import model.Clientes;
 import model.ClientesDAO;
 import view.FRM_Clientes;
@@ -45,8 +34,6 @@ public class ClientesControl {
         // chama o metodo para inserir cliente
         clienteDAO.insertCliente(cliente);
     }
-<<<<<<< HEAD
-=======
 
     // deletar cliente
     public void deleteCliete() throws SQLException {
@@ -89,5 +76,4 @@ public class ClientesControl {
         
         return clientes;
     }
->>>>>>> master
 }
