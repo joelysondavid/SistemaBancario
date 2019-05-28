@@ -10,12 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-<<<<<<< HEAD
-import java.util.logging.Level;
-import java.util.logging.Logger;
-=======
 import java.util.ArrayList;
->>>>>>> master
 import javax.swing.JOptionPane;
 
 /**
@@ -24,21 +19,13 @@ import javax.swing.JOptionPane;
  */
 public class ClientesDAO {
 
-<<<<<<< HEAD
-    // varoaveos de para integração do banco com a classe Clientes
-=======
     // variaveis de para integração do banco com a classe Clientes
->>>>>>> master
     private Connection conn = null;
     private PreparedStatement stm;
     private ResultSet rs;
     private DaoConexao dao;
 
-<<<<<<< HEAD
-    // consturtor com a conexão vindo do framework/DaoConexao
-=======
     // construtor com a conexão vindo do framework/DaoConexao
->>>>>>> master
     public ClientesDAO() {
         // instancia uma nova conexao
         dao = new DaoConexao();
@@ -69,17 +56,12 @@ public class ClientesDAO {
         if (rs.next()) {
             cliente.setCodigoCliente(rs.getInt(1));
         }
-<<<<<<< HEAD
-=======
         JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!", "Cadastrado", JOptionPane.INFORMATION_MESSAGE);
->>>>>>> master
         dao.closeConnection(conn, stm, rs);
         // e por fim retorna o codigo do novo cliente
         return cliente.getCodigoCliente();
     }
 
-<<<<<<< HEAD
-=======
     // método delete cliente
     public void deleteCliente(int codigo) throws SQLException {
         // comando delete cliente
@@ -146,5 +128,4 @@ public class ClientesDAO {
         dao.closeConnection(conn, stm, rs);
         return clientes;
     }
->>>>>>> master
 }
