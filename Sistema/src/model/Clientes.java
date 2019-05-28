@@ -25,6 +25,7 @@ public class Clientes {
 
     }
 
+<<<<<<< HEAD
     public void cadastrarCliente() {
 
     }
@@ -37,6 +38,29 @@ public class Clientes {
 
     }
 
+=======
+    Clientes(int codigoCliente, String nomeCliente, String enderecoCliente, String email, int documento, int telefone) {
+        this.codigoCliente = codigoCliente;
+        this.nomeCliente = nomeCliente;
+        this.enderecoCliente = enderecoCliente;
+        this.documento = documento;
+        this.email = email;
+        this.telefone = telefone;
+    }
+
+    public void cadastrarCliente() {
+
+    }
+
+    public void atualizarCliente(int codigoCliente) {
+
+    }
+
+    public void deletarClientes(int codigoCliente) {
+
+    }
+
+>>>>>>> master
     /*
     public Clientes obterCliente(int codigoCliente){
         return um cliente;

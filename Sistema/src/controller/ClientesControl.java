@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,6 +7,15 @@
 package controller;
 
 import java.sql.SQLException;
+=======
+package controller;
+
+import framework.DaoConexao;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+>>>>>>> master
 import model.Clientes;
 import model.ClientesDAO;
 import view.FRM_Clientes;
@@ -35,4 +45,49 @@ public class ClientesControl {
         // chama o metodo para inserir cliente
         clienteDAO.insertCliente(cliente);
     }
+<<<<<<< HEAD
+=======
+
+    // deletar cliente
+    public void deleteCliete() throws SQLException {
+        int codigo = Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o código do cliente para deletar: ", "Deletar", JOptionPane.QUESTION_MESSAGE));
+
+        // chamar o método apagar cliente
+        clienteDAO.deleteCliente(codigo);
+
+    }
+
+    // alterar cliente
+    public void updateCliente() throws SQLException {
+        int codigo = Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o código do cliente para alteração: ", "Alterar", JOptionPane.QUESTION_MESSAGE));
+        // passa os novos dados ao cliente
+        cliente = new Clientes(frmClientes.getTxtNome().getText(), frmClientes.getTxtEndereco().getText(), frmClientes.getTxtEmail().getText(),
+                Integer.parseInt(frmClientes.getTxtCPF_CNPJ().getText()), Integer.parseInt(frmClientes.getTxtTelefone().getText()));
+        // chama o método para alteração do cliente no bd
+        clienteDAO.updateCliente(cliente, codigo);
+        JOptionPane.showMessageDialog(null, "Cliente atualizado com sucesso!", "Atualizado", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    // procura Cliente nome
+    public void procuraCliente() throws SQLException {
+        // string recebendo o nome do cliente 
+        String nome = frmClientes.getTxtProcurar().getText();
+        // chama o método para procurar o nome do cliente
+        clienteDAO.procurarCliente(nome);
+    }
+    
+    // mostrar todo os clientes
+    public ArrayList<Clientes> mostrarClientes() throws SQLException {
+        // objeto clientes obtendo os clientes da base
+        ArrayList<Clientes> clientes = clienteDAO.mostraClientes();
+        // 
+        DefaultTableModel dtmClientes = (DefaultTableModel) frmClientes.getTbClientes().getModel();
+        
+        for(Clientes cliente: clientes) {
+            dtmClientes.addRow(new Object[]{cliente.getCodigoCliente(), cliente.getNomeCliente(), cliente.getEnderecoCliente(), cliente.getEmail(), cliente.getDocumento(), cliente.getTelefone()});
+        }
+        
+        return clientes;
+    }
+>>>>>>> master
 }
