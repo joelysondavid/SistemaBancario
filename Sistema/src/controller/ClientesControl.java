@@ -20,19 +20,24 @@ public class ClientesControl {
     private FRM_Clientes frmClientes;
     private Clientes cliente;
 
+    // define o formulario que vamos trabalho através do parametro informado
     public ClientesControl(FRM_Clientes frmClientes) {
         this.frmClientes = frmClientes;
     }
 
     // incluir novo cliente
     public void insertCliente() throws SQLException {
+
         // instancia um novo objeto
         cliente = new Clientes(frmClientes.getTxtNome().getText(), frmClientes.getTxtEndereco().getText(),
                 frmClientes.getTxtEmail().getText(), Integer.parseInt(frmClientes.getTxtCPF_CNPJ().getText().trim()),
                 Integer.parseInt(frmClientes.getTxtTelefone().getText().trim()));
 
         // chama o metodo para inserir cliente
-        clienteDAO.insertCliente(cliente);
+        int flag = clienteDAO.insertCliente(cliente);
+        // chama o método mostar clientes para atualizar a tabela
+        mostrarClientes();
+
     }
 
     // deletar cliente
@@ -41,6 +46,8 @@ public class ClientesControl {
 
         // chamar o método apagar cliente
         clienteDAO.deleteCliente(codigo);
+        // chama o método mostar clientes para atualizar a tabela
+        mostrarClientes();
 
     }
 
@@ -56,24 +63,47 @@ public class ClientesControl {
     }
 
     // procura Cliente nome
-    public void procuraCliente() throws SQLException {
+    public ArrayList<Clientes> procuraCliente() throws SQLException {
+        // objeto clientes obtendo os clientes da base
+        ArrayList<Clientes> clientes = clienteDAO.procurarCliente(frmClientes.getTxtProcurar().getText());
         // string recebendo o nome do cliente 
         String nome = frmClientes.getTxtProcurar().getText();
-        // chama o método para procurar o nome do cliente
-        clienteDAO.procurarCliente(nome);
+        // objeto clientes obtendo os clientes da base
+        // cria um objeto DefaultTableModel que recebe como valor nossa Jtable
+        DefaultTableModel dtmClientes = (DefaultTableModel) frmClientes.getTbClientes().getModel();
+        // seta nossa dtm para que atualize sem duplicar os dados que ja existem
+        dtmClientes.setNumRows(0);
+        for (Clientes cliente : clientes) {
+            dtmClientes.addRow(new Object[]{cliente.getCodigoCliente(), cliente.getNomeCliente(), cliente.getEnderecoCliente(), cliente.getEmail(), cliente.getDocumento(), cliente.getTelefone()});
+
+        }
+        return clientes;
+    } // falta criar o segundo procurar clietne com cpfff
+
+    public boolean verificaCliente() throws SQLException {
+        // cria uma 'flag' para verificar se o cliente existe
+        boolean verifica = clienteDAO.verificaCliente(Integer.parseInt(frmClientes.getTxtCPF_CNPJ().getText()));
+        if (verifica == false) {
+            return false;
+        } else {
+            JOptionPane.showMessageDialog(null, "Já existe um cliente cadastrado com esse CPF/CNPJ!\n\tTenteNovamente!", "Aviso!", JOptionPane.WARNING_MESSAGE);
+            return true;
+        }
+
     }
-    
+
     // mostrar todo os clientes
     public ArrayList<Clientes> mostrarClientes() throws SQLException {
         // objeto clientes obtendo os clientes da base
         ArrayList<Clientes> clientes = clienteDAO.mostraClientes();
-        // 
+        // cria um objeto DefaultTableModel que recebe como valor nossa Jtable
         DefaultTableModel dtmClientes = (DefaultTableModel) frmClientes.getTbClientes().getModel();
-        
-        for(Clientes cliente: clientes) {
+        // seta nossa dtm para que atualize sem duplicar os dados que ja existem
+        dtmClientes.setNumRows(0);
+        for (Clientes cliente : clientes) {
             dtmClientes.addRow(new Object[]{cliente.getCodigoCliente(), cliente.getNomeCliente(), cliente.getEnderecoCliente(), cliente.getEmail(), cliente.getDocumento(), cliente.getTelefone()});
+
         }
-        
         return clientes;
     }
 }
