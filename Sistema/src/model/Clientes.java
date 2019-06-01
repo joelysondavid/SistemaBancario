@@ -10,10 +10,10 @@ public class Clientes {
     private String nomeCliente;
     private String enderecoCliente;
     private String email;
-    private int documento;
-    private int telefone;
+    private long documento;
+    private long telefone;
 
-    public Clientes(String nomeCliente, String enderecoCliente, String email, int documento, int telefone) {
+    public Clientes(String nomeCliente, String enderecoCliente, String email, long documento, long telefone) {
         this.nomeCliente = nomeCliente;
         this.enderecoCliente = enderecoCliente;
         this.documento = documento;
@@ -25,7 +25,7 @@ public class Clientes {
 
     }
 
-    Clientes(int codigoCliente, String nomeCliente, String enderecoCliente, String email, int documento, int telefone) {
+    Clientes(int codigoCliente, String nomeCliente, String enderecoCliente, String email, long documento, long telefone) {
         this.codigoCliente = codigoCliente;
         this.nomeCliente = nomeCliente;
         this.enderecoCliente = enderecoCliente;
@@ -78,11 +78,11 @@ public class Clientes {
         this.enderecoCliente = enderecoCliente;
     }
 
-    public int getDocumento() {
+    public long getDocumento() {
         return documento;
     }
 
-    public void setDocumento(int documento) {
+    public void setDocumento(long documento) {
         this.documento = documento;
     }
 
@@ -94,11 +94,11 @@ public class Clientes {
         this.email = email;
     }
 
-    public int getTelefone() {
+    public long getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(long telefone) {
         this.telefone = telefone;
     }
 

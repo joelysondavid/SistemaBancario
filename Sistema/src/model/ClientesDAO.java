@@ -46,8 +46,8 @@ public class ClientesDAO {
             stm.setString(1, cliente.getNomeCliente());
             stm.setString(2, cliente.getEnderecoCliente());
             stm.setString(3, cliente.getEmail());
-            stm.setInt(4, cliente.getDocumento());
-            stm.setInt(5, cliente.getTelefone());
+            stm.setLong(4, cliente.getDocumento());
+            stm.setLong(5, cliente.getTelefone());
             // executa comando sql
             stm.executeUpdate();
 
@@ -84,8 +84,8 @@ public class ClientesDAO {
         stm.setString(1, cliente.getNomeCliente());
         stm.setString(2, cliente.getEnderecoCliente());
         stm.setString(3, cliente.getEmail());
-        stm.setInt(4, cliente.getDocumento());
-        stm.setInt(5, cliente.getTelefone());
+        stm.setLong(4, cliente.getDocumento());
+        stm.setLong(5, cliente.getTelefone());
         stm.setInt(6, codigo);
         // executa o comando UPDATE
         stm.executeUpdate();
@@ -105,7 +105,7 @@ public class ClientesDAO {
         while (rs.next()) {
             clientes.add(new Clientes(rs.getInt("ID_Cliente"), rs.getString("NomeCliente"),
                     rs.getString("EnderecoCliente"), rs.getString("Email"),
-                    rs.getInt("CPF_CNPJ"), rs.getInt("Telefone")));
+                    rs.getLong("CPF_CNPJ"), rs.getLong("Telefone")));
         }
         // método para caso não encontre cliente cadastrado com aquele nome
         // retorna o objeto Cliente
@@ -128,7 +128,7 @@ public class ClientesDAO {
         if (rs.next()) {
             cliente = new Clientes(rs.getInt("ID_Cliente"), rs.getString("NomeCliente"),
                     rs.getString("EnderecoCliente"), rs.getString("Email"),
-                    rs.getInt("CPF_CNPJ"), rs.getInt("Telefone"));
+                    rs.getLong("CPF_CNPJ"), rs.getLong("Telefone"));
         } else {
             return null;
         }
@@ -136,7 +136,7 @@ public class ClientesDAO {
     }
     // procurar cliente retirba boolean
     // sobrescrever método procurar cliente
-    public boolean verificaCliente(int CPF_CNPJ) throws SQLException {
+    public boolean verificaCliente(long CPF_CNPJ) throws SQLException {
         // cria objeto cliente
         Clientes cliente;
         // String com o comenado select para buscar cnpj do cliente
@@ -144,7 +144,7 @@ public class ClientesDAO {
         // prepara nosso comando sql
         stm = conn.prepareStatement(comando);
         // seta o valor que iremos passar para nosso campo "?"
-        stm.setInt(1, CPF_CNPJ);
+        stm.setLong(1, CPF_CNPJ);
         // execura o comando
         rs = stm.executeQuery();
         // chama rs para receber os dados do banco
@@ -167,8 +167,7 @@ public class ClientesDAO {
         rs = stm.executeQuery();
         while (rs.next()) {
             clientes.add(new Clientes(rs.getInt("ID_Cliente"), rs.getString("NomeCliente"),
-                    rs.getString("EnderecoCliente"), rs.getString("Email"),
-                    rs.getInt("CPF_CNPJ"), rs.getInt("Telefone")));
+                    rs.getString("EnderecoCliente"), rs.getString("Email"), rs.getLong("CPF_CNPJ"), rs.getLong("Telefone")));
         }
         return clientes;
     }

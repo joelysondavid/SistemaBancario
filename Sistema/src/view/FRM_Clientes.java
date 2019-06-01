@@ -300,16 +300,14 @@ public class FRM_Clientes extends javax.swing.JFrame {
         if (campoVazio() == false) {
             try {
 
-                if (clientesCtrl.verificaCliente() == false) {
+                if (clientesCtrl.clienteExiste() == false) {
                     clientesCtrl.insertCliente();
-                    limparCampos();
-                } else {
-
                 }
-
             } catch (SQLException ex) {
                 Logger.getLogger(FRM_Clientes.class.getName()).log(Level.SEVERE, null, ex);
             }
+        } else {
+            JOptionPane.showMessageDialog(null, "Para cadastrar todos os campos devem estar preenchidas com as informações corretas do cliente!", "Aviso!", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
@@ -335,7 +333,11 @@ public class FRM_Clientes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcurarActionPerformed
-        // TODO add your handling code here:
+        try {
+            clientesCtrl.procuraCliente();
+        } catch (SQLException ex) {
+            Logger.getLogger(FRM_Clientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnProcurarActionPerformed
 
     /**

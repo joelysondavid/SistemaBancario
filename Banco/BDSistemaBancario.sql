@@ -7,13 +7,13 @@ CREATE TABLE Clientes (
     NomeCliente VARCHAR(100) NOT NULL,
     EnderecoCliente VARCHAR(100) NOT NULL,
     Email VARCHAR(50) NOT NULL,
-    CPF_CNPJ INT NOT NULL,    
-    Telefone INT NOT NULL
+    CPF_CNPJ BIGINT NOT NULL,    
+    Telefone BIGINT NOT NULL
 );
-
+SELECT * FROM Clientes WHERE NomeCliente LIKE '123';
 -- INSERINDO DADOS PARA TESTES NA TABELA CLIENTES
 INSERT INTO Clientes (NomeCliente, EnderecoCliente, CPF_CNPJ, Email, Telefone) 
-VALUES ('NomeTestééééée', 'EnderecoTeste', '12365478963', 'teste@email.com', '11952190193');
+VALUES ('Nome Teste', 'Endereço Teste', '99999999999', 'teste@email.com', '11947292181');
 SELECT * FROM CLIENTES;
 
 -- TABELA CONTA
