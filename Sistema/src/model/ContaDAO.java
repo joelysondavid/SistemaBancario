@@ -1,4 +1,3 @@
-
 package model;
 
 import framework.DaoConexao;
@@ -13,13 +12,14 @@ import javax.swing.JOptionPane;
  * @author Alisson R
  */
 public class ContaDAO {
-    // varoaveos de para integração do banco com a classe Clientes
+    
+    // variaveis para integração do banco com a classe Clientes
     private Connection conn = null;
     private PreparedStatement stm;
     private ResultSet rs;
     private DaoConexao dao;
 
-    // consturtor com a conexão vindo do framework/DaoConexao
+    // construtor com a conexão vindo do framework/DaoConexao
     public ContaDAO() {
         // instancia uma nova conexao
         dao = new DaoConexao();

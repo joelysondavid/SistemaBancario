@@ -7,15 +7,30 @@ package model;
 
 /**
  *
- * @author Geraldo
+ * @author Alisson R
  */
 public class Conta {
+
     private int codigoCliente;
     private int numConta;
     private int numCartoes;
     private int saldo;
     private char senha;
 
+    //construtor vazio
+    public Conta() {
+    }
+
+    // construtor com parametros
+    public Conta(int codigoCliente, int numConta, int numCartoes, int saldo, char senha) {
+        this.codigoCliente = codigoCliente;
+        this.numConta = numConta;
+        this.numCartoes = numCartoes;
+        this.saldo = saldo;
+        this.senha = senha;
+    }
+
+    // getters and setters
     public int getCodigoCliente() {
         return codigoCliente;
     }
