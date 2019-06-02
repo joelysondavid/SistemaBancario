@@ -46,24 +46,41 @@ public class ClientesControl {
 
     // deletar cliente
     public void deleteCliete() throws SQLException {
-        int codigo = Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o código do cliente para deletar: ", "Deletar", JOptionPane.QUESTION_MESSAGE));
-
-        // chamar o método apagar cliente
-        clienteDAO.deleteCliente(codigo);
-        // chama o método mostar clientes para atualizar a tabela
-        mostrarClientes();
-
+        // linha selecionada        
+        int linha = frmClientes.getTbClientes().getSelectedRow();
+        // pega o codigo dessa linha
+        int codigo = (int) frmClientes.getTbClientes().getValueAt(linha, 0);
+        // pega o nome do cliente
+        String nome = (String) frmClientes.getTbClientes().getValueAt(linha, 1);
+        // validação para saber se tem certeza que deseja apagar        
+        int confirma = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja apagar o cliente: " + nome + " ?", "Confirma apagar o cliente?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        // se for confirmado chama o metodo para deletar o usuario do banco e atualiza a tabela
+        if (confirma == 0) {
+            // chamar o método apagar cliente
+            clienteDAO.deleteCliente(codigo);
+            // chama o método mostar clientes para atualizar a tabela
+            mostrarClientes();
+        }
     }
 
     // alterar cliente
     public void updateCliente() throws SQLException {
-        int codigo = Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o código do cliente para alteração: ", "Alterar", JOptionPane.QUESTION_MESSAGE));
-        // passa os novos dados ao cliente
-        cliente = new Clientes(frmClientes.getTxtNome().getText(), frmClientes.getTxtEndereco().getText(), frmClientes.getTxtEmail().getText(),
-                Integer.parseInt(frmClientes.getTxtCPF_CNPJ().getText()), Integer.parseInt(frmClientes.getTxtTelefone().getText()));
-        // chama o método para alteração do cliente no bd
-        clienteDAO.updateCliente(cliente, codigo);
-        JOptionPane.showMessageDialog(null, "Cliente atualizado com sucesso!", "Atualizado", JOptionPane.INFORMATION_MESSAGE);
+        // linha selecionada
+        int linha = frmClientes.getTbClientes().getSelectedRow();
+        // pega o código
+        int codigo = (int) frmClientes.getTbClientes().getValueAt(linha, 0);
+        // nome do cliente
+        String nome = (String) frmClientes.getTbClientes().getValueAt(linha, 1);
+        int confirma = JOptionPane.showConfirmDialog(null, "Confirma a alteração do cliente: " + nome + " ?", "Confirmação", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (confirma == 1) {
+            // passa os novos dados ao cliente
+            cliente = new Clientes(frmClientes.getTxtNome().getText(), frmClientes.getTxtEndereco().getText(), frmClientes.getTxtEmail().getText(),
+                    Integer.parseInt(frmClientes.getTxtCPF_CNPJ().getText()), Integer.parseInt(frmClientes.getTxtTelefone().getText()));
+            // chama o método para alteração do cliente no bd
+            clienteDAO.updateCliente(cliente, codigo);
+            JOptionPane.showMessageDialog(null, "Cliente atualizado com sucesso!", "Atualizado", JOptionPane.INFORMATION_MESSAGE);
+        }
+
     }
 
     // procura Cliente nome
@@ -115,11 +132,11 @@ public class ClientesControl {
     public boolean cpfValido(/*String cpf*/) {
         String cpf = frmClientes.getTxtCPF_CNPJ().getText();
         // caso o cpf seja com os 11 digitos iguais ele é falso
-        if (!cpf.equals("11111111111") || !cpf.equals("22222222222")
+        if ((!cpf.equals("11111111111") || !cpf.equals("22222222222")
                 || !cpf.equals("33333333333") || !cpf.equals("44444444444")
                 || !cpf.equals("55555555555") || !cpf.equals("66666666666")
                 || !cpf.equals("77777777777") || !cpf.equals("88888888888")
-                || !cpf.equals("99999999999") || !cpf.equals("00000000000") || cpf.length() != 11) {
+                || !cpf.equals("99999999999") || !cpf.equals("00000000000")) && cpf.length() == 11) {
             // variaveis que iremos utilizar
             int n; // para comparar com o resto
             int result = 0; // resultado da primeira multiplicação com as somas
