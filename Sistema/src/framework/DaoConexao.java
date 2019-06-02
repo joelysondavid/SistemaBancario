@@ -5,6 +5,7 @@
  */
 package framework;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -54,7 +55,5 @@ public class DaoConexao {
         }
 
         conn.close();
-
-        System.out.println("Desconectado!");
     }
 }
