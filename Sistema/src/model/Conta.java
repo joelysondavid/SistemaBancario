@@ -7,33 +7,17 @@ package model;
 public class Conta {
 
     private int codigoCliente;
-    private int numConta;
+    private long numConta;
     private int numCartoes;
-    private int saldo;
-    private char senha;
-<<<<<<< HEAD
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-=======
-
+    private double saldo;
+    private String senha;
     //construtor vazio
     public Conta() {
     }
 
     // construtor com parametros
-    public Conta(int codigoCliente, int numConta, int numCartoes, int saldo, char senha) {
+    public Conta(int codigoCliente, double saldo, String senha) {
         this.codigoCliente = codigoCliente;
-        this.numConta = numConta;
-        this.numCartoes = numCartoes;
         this.saldo = saldo;
         this.senha = senha;
     }
@@ -47,11 +31,11 @@ public class Conta {
         this.codigoCliente = codigoCliente;
     }
 
-    public int getNumConta() {
+    public long getNumConta() {
         return numConta;
     }
 
-    public void setNumConta(int numConta) {
+    public void setNumConta(long numConta) {
         this.numConta = numConta;
     }
 
@@ -63,20 +47,19 @@ public class Conta {
         this.numCartoes = numCartoes;
     }
 
-    public int getSaldo() {
+    public double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(int saldo) {
+    public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 
-    public char getSenha() {
+    public String getSenha() {
         return senha;
     }
 
-    public void setSenha(char senha) {
+    public void setSenha(String senha) {
         this.senha = senha;
     }
->>>>>>> AlissonReis
 }

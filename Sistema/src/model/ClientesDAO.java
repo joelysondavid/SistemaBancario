@@ -10,7 +10,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -39,15 +42,20 @@ public class ClientesDAO {
 
     // método de novo cliente
     public int insertCliente(Clientes cliente) throws SQLException {
+           Date data = new Date();
+           SimpleDateFormat formatar = new SimpleDateFormat("yyyy/MM/dd");
+           String hoje = formatar.format(data);
+        
+            String comando = "INSERT INTO Clientes (NomeCliente, EnderecoCliente, Email, CPF_CNPJ, Telefone, ClienteDesde) VALUES (?, ?, ?, ?, ?, ?)";
 
-            String comando = "INSERT INTO Clientes (NomeCliente, EnderecoCliente, Email, CPF_CNPJ, Telefone) VALUES (?, ?, ?, ?, ?)";
             // stm recebe a preparação da query com os dados passados com um metodo para retornar a chave gerada
             stm = conn.prepareStatement(comando, PreparedStatement.RETURN_GENERATED_KEYS);
             stm.setString(1, cliente.getNomeCliente());
             stm.setString(2, cliente.getEnderecoCliente());
             stm.setString(3, cliente.getEmail());
             stm.setLong(4, cliente.getDocumento());
-            stm.setLong(5, cliente.getTelefone());
+            stm.setString(5, cliente.getTelefone());
+            stm.setString(6, hoje);
             // executa comando sql
             stm.executeUpdate();
 
@@ -85,7 +93,7 @@ public class ClientesDAO {
         stm.setString(2, cliente.getEnderecoCliente());
         stm.setString(3, cliente.getEmail());
         stm.setLong(4, cliente.getDocumento());
-        stm.setLong(5, cliente.getTelefone());
+        stm.setString(5, cliente.getTelefone());
         stm.setInt(6, codigo);
         // executa o comando UPDATE
         stm.executeUpdate();
@@ -105,7 +113,7 @@ public class ClientesDAO {
         while (rs.next()) {
             clientes.add(new Clientes(rs.getInt("ID_Cliente"), rs.getString("NomeCliente"),
                     rs.getString("EnderecoCliente"), rs.getString("Email"),
-                    rs.getLong("CPF_CNPJ"), rs.getLong("Telefone")));
+                    rs.getLong("CPF_CNPJ"), rs.getString("Telefone")));
         }
         // método para caso não encontre cliente cadastrado com aquele nome
         // retorna o objeto Cliente
@@ -128,7 +136,7 @@ public class ClientesDAO {
         if (rs.next()) {
             cliente = new Clientes(rs.getInt("ID_Cliente"), rs.getString("NomeCliente"),
                     rs.getString("EnderecoCliente"), rs.getString("Email"),
-                    rs.getLong("CPF_CNPJ"), rs.getLong("Telefone"));
+                    rs.getLong("CPF_CNPJ"), rs.getString("Telefone"));
         } else {
             return null;
         }
@@ -167,7 +175,7 @@ public class ClientesDAO {
         rs = stm.executeQuery();
         while (rs.next()) {
             clientes.add(new Clientes(rs.getInt("ID_Cliente"), rs.getString("NomeCliente"),
-                    rs.getString("EnderecoCliente"), rs.getString("Email"), rs.getLong("CPF_CNPJ"), rs.getLong("Telefone")));
+                    rs.getString("EnderecoCliente"), rs.getString("Email"), rs.getLong("CPF_CNPJ"), rs.getString("Telefone")));
         }
         return clientes;
     }
