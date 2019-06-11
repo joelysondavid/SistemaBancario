@@ -3,7 +3,11 @@ package controller;
 import framework.DaoConexao;
 import java.math.BigInteger;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Clientes;
@@ -32,10 +36,10 @@ public class ClientesControl {
             // instancia um novo objeto
             cliente = new Clientes(frmClientes.getTxtNome().getText(), frmClientes.getTxtEndereco().getText(),
                     frmClientes.getTxtEmail().getText(), Long.parseLong(frmClientes.getTxtCPF_CNPJ().getText().trim()),
-                    Long.parseLong(frmClientes.getTxtTelefone().getText().trim()));
+                    frmClientes.getTxtTelefone().getText().trim());
 
             // chama o metodo para inserir cliente
-            int flag = clienteDAO.insertCliente(cliente);
+            clienteDAO.insertCliente(cliente);
             // chama o método mostar clientes para atualizar a tabela
             mostrarClientes(); // recarrega a tabela
             frmClientes.limparCampos(); // chama o método para limpar os campos
@@ -72,10 +76,10 @@ public class ClientesControl {
         // nome do cliente
         String nome = (String) frmClientes.getTbClientes().getValueAt(linha, 1);
         int confirma = JOptionPane.showConfirmDialog(null, "Confirma a alteração do cliente: " + nome + " ?", "Confirmação", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if (confirma == 1) {
+        if (confirma == 0) {
             // passa os novos dados ao cliente
             cliente = new Clientes(frmClientes.getTxtNome().getText(), frmClientes.getTxtEndereco().getText(), frmClientes.getTxtEmail().getText(),
-                    Integer.parseInt(frmClientes.getTxtCPF_CNPJ().getText()), Integer.parseInt(frmClientes.getTxtTelefone().getText()));
+                    Long.parseLong(frmClientes.getTxtCPF_CNPJ().getText()), frmClientes.getTxtTelefone().getText());
             // chama o método para alteração do cliente no bd
             clienteDAO.updateCliente(cliente, codigo);
             JOptionPane.showMessageDialog(null, "Cliente atualizado com sucesso!", "Atualizado", JOptionPane.INFORMATION_MESSAGE);
