@@ -21,7 +21,7 @@ public class SaldoControl {
         this.frmSaldo = frmSaldo;
     }
 
-    // metodo para exibir os dados
+    // metodo para exibir os dados na tela saldo
     public void exibeDados() throws SQLException {
         double saldo = contaDao.saldoConta(loginDao.getIdConta());
         frmSaldo.getTxtSaldo().setText(""+saldo);        
