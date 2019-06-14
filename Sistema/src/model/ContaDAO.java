@@ -5,7 +5,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -94,6 +97,95 @@ public class ContaDAO {
         return extrato;
     }
 
+    // método sacar da conta
+    public void sacar(long idConta, double valor) throws SQLException {
+        Date data = new Date();
+        SimpleDateFormat formatar = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        String hoje = formatar.format(data);
+
+        // comando para verificar a conta
+        String comando = "SELECT * FROM Conta WHERE ID_CONTA = ?;";
+        // prepara o comando
+        stm = conn.prepareCall(comando);
+        // seta o valor
+        stm.setLong(1, idConta);
+        // executa o comando
+        rs = stm.executeQuery();
+        if (rs.next()) {
+            setSaldo(rs.getDouble("Saldo"));
+
+            if (getSaldo() >= valor) {
+                // string com comando para atualizar o valor da conta
+                String comandoSaque = "UPDATE CONTA SET Saldo = ? WHERE ID_CONTA = ?;";
+                double result = getSaldo() - valor;
+                // comando para preparar o comando update
+                stm = conn.prepareCall(comandoSaque);
+                // comando para setar os valors
+                stm.setDouble(1, result);
+                stm.setLong(2, idConta);
+                // comando para executar o comando
+                stm.executeUpdate();
+                // COMANDO PARA INSERIR EXTRATO
+                String comandoExtrato = "INSERT INTO EXTRATO (ID_CONTA, VALOR, TIPO, DATA_TRANSACAO) VALUES (?, ?, ?, ?);";
+                // prepara o comando insert
+                stm = conn.prepareCall(comandoExtrato);
+                // seta os valores
+                stm.setLong(1, idConta);
+                stm.setDouble(2, valor);
+                stm.setString(3, "Saque");
+                stm.setString(4, hoje);
+                stm.executeUpdate();
+            } else {
+                JOptionPane.showMessageDialog(null, "Valor informado maior que o valor do saldo!", "Erro!", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Conta inválida!", "Aviso!", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
+    // método depositar
+    public void depositar(long idConta, double valor) throws SQLException {
+        Date data = new Date();
+        SimpleDateFormat formatar = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        String hoje = formatar.format(data);
+
+        // comando para verificar a conta
+        String comando = "SELECT * FROM Conta WHERE ID_CONTA = ?;";
+        // prepara o comando
+        stm = conn.prepareCall(comando);
+        // seta o valor
+        stm.setLong(1, idConta);
+        // executa o comando
+        rs = stm.executeQuery();
+        if (rs.next()) {
+            setSaldo(rs.getDouble("Saldo"));
+            // string com comando para atualizar o valor da conta
+            String comandoSaque = "UPDATE CONTA SET Saldo = ? WHERE ID_CONTA = ?;";
+            double result = getSaldo() + valor;
+            // comando para preparar o comando update
+            stm = conn.prepareCall(comandoSaque);
+            // comando para setar os valors
+            stm.setDouble(1, result);
+            stm.setLong(2, idConta);
+            // comando para executar o comando
+            stm.executeUpdate();
+            // COMANDO PARA INSERIR EXTRATO
+            String comandoExtrato = "INSERT INTO EXTRATO (ID_CONTA, VALOR, TIPO, DATA_TRANSACAO) VALUES (?, ?, ?, ?);";
+            // prepara o comando insert
+            stm = conn.prepareCall(comandoExtrato);
+            // seta os valores
+            stm.setLong(1, idConta);
+            stm.setDouble(2, valor);
+            stm.setString(3, "Deposito");
+            stm.setString(4, hoje);
+            stm.executeUpdate();
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Conta inválida!", "Aviso!", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
+    // getters e setters
     public static double getSaldo() {
         return saldo;
     }
