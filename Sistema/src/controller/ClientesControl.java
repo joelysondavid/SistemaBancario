@@ -92,7 +92,7 @@ public class ClientesControl {
         // objeto clientes obtendo os clientes da base
         ArrayList<Clientes> clientes = clienteDAO.procurarCliente(frmClientes.getTxtProcurar().getText());
         // string recebendo o nome do cliente 
-        String nome = frmClientes.getTxtProcurar().getText();
+        //String nome = frmClientes.getTxtProcurar().getText();
         // objeto clientes obtendo os clientes da base
         // cria um objeto DefaultTableModel que recebe como valor nossa Jtable
         DefaultTableModel dtmClientes = (DefaultTableModel) frmClientes.getTbClientes().getModel();
@@ -100,7 +100,6 @@ public class ClientesControl {
         dtmClientes.setNumRows(0);
         for (Clientes cliente : clientes) {
             dtmClientes.addRow(new Object[]{cliente.getCodigoCliente(), cliente.getNomeCliente(), cliente.getEnderecoCliente(), cliente.getEmail(), cliente.getDocumento(), cliente.getTelefone()});
-
         }
         return clientes;
     } // falta criar o segundo procurar clietne com cpfff
