@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.HomeControl;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,8 +17,12 @@ public class FRM_Home extends javax.swing.JFrame {
     /**
      * Creates new form FRM_Home
      */
+    private HomeControl homeCtrl = new HomeControl(FRM_Home.this);
+    private FRM_Login frmLogin = new FRM_Login();
+
     public FRM_Home() {
         initComponents();
+        lblNome.setText(homeCtrl.getNome());
     }
 
     /**
@@ -30,37 +35,24 @@ public class FRM_Home extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        btnBoletos = new javax.swing.JButton();
+        lblNome = new javax.swing.JLabel();
         btnSaldo1 = new javax.swing.JButton();
         btnDepositos = new javax.swing.JButton();
-        btnCartoes = new javax.swing.JButton();
-        btnTransferencia = new javax.swing.JButton();
         btnSaque = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setName("frmHome"); // NOI18N
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Home", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Consolas", 1, 24), new java.awt.Color(0, 0, 0))); // NOI18N
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Nome do Cliente");
-
-        btnBoletos.setBackground(new java.awt.Color(0, 0, 0));
-        btnBoletos.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
-        btnBoletos.setForeground(new java.awt.Color(255, 255, 255));
-        btnBoletos.setText("Pagamentos/Boletos");
-        btnBoletos.setMaximumSize(new java.awt.Dimension(90, 35));
-        btnBoletos.setMinimumSize(new java.awt.Dimension(90, 35));
-        btnBoletos.setPreferredSize(new java.awt.Dimension(90, 35));
-        btnBoletos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBoletosActionPerformed(evt);
-            }
-        });
+        lblNome.setBackground(new java.awt.Color(255, 255, 255));
+        lblNome.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        lblNome.setForeground(new java.awt.Color(255, 255, 255));
+        lblNome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNome.setText("Nome do Cliente");
 
         btnSaldo1.setBackground(new java.awt.Color(0, 0, 0));
         btnSaldo1.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
@@ -85,32 +77,6 @@ public class FRM_Home extends javax.swing.JFrame {
         btnDepositos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDepositosActionPerformed(evt);
-            }
-        });
-
-        btnCartoes.setBackground(new java.awt.Color(0, 0, 0));
-        btnCartoes.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
-        btnCartoes.setForeground(new java.awt.Color(255, 255, 255));
-        btnCartoes.setText("Cartoes");
-        btnCartoes.setMaximumSize(new java.awt.Dimension(90, 35));
-        btnCartoes.setMinimumSize(new java.awt.Dimension(90, 35));
-        btnCartoes.setPreferredSize(new java.awt.Dimension(90, 35));
-        btnCartoes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCartoesActionPerformed(evt);
-            }
-        });
-
-        btnTransferencia.setBackground(new java.awt.Color(0, 0, 0));
-        btnTransferencia.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
-        btnTransferencia.setForeground(new java.awt.Color(255, 255, 255));
-        btnTransferencia.setText("Transferencias");
-        btnTransferencia.setMaximumSize(new java.awt.Dimension(90, 35));
-        btnTransferencia.setMinimumSize(new java.awt.Dimension(90, 35));
-        btnTransferencia.setPreferredSize(new java.awt.Dimension(90, 35));
-        btnTransferencia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTransferenciaActionPerformed(evt);
             }
         });
 
@@ -145,52 +111,35 @@ public class FRM_Home extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSaldo1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnDepositos, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                        .addComponent(btnBoletos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnSaque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnCartoes, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(92, 92, 92))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(260, 260, 260)
-                        .addComponent(jLabel1))
+                        .addGap(142, 142, 142)
+                        .addComponent(lblNome))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(271, 271, 271)
+                        .addGap(113, 113, 113)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnSaque, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSaldo1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDepositos, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
                         .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(78, 78, 78)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSaldo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSaque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(57, 57, 57)
-                        .addComponent(btnBoletos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnDepositos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCartoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(btnTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addComponent(lblNome)
+                .addGap(52, 52, 52)
+                .addComponent(btnSaldo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63)
+                .addComponent(btnSaque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65)
+                .addComponent(btnDepositos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
                 .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -199,40 +148,32 @@ public class FRM_Home extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBoletosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBoletosActionPerformed
-        
-    }//GEN-LAST:event_btnBoletosActionPerformed
-
     private void btnSaldo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaldo1ActionPerformed
-        // TODO add your handling code here:
+        FRM_Saldo frmSaldo = new FRM_Saldo();
+        frmSaldo.setVisible(true);
+        frmSaldo.setEnabled(true);
+        this.setVisible(false);
+        this.setEnabled(false);
     }//GEN-LAST:event_btnSaldo1ActionPerformed
 
     private void btnDepositosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDepositosActionPerformed
-
-    private void btnCartoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCartoesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCartoesActionPerformed
-
-    private void btnTransferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferenciaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTransferenciaActionPerformed
 
     private void btnSaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaqueActionPerformed
         // TODO add your handling code here:
@@ -240,8 +181,11 @@ public class FRM_Home extends javax.swing.JFrame {
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         int op = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair?", "Alerta!", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if(op == 0) {
-            System.exit(0);
+        if (op == 0) {
+            getFrmLogin().setVisible(true);
+            getFrmLogin().setEnabled(true);
+            this.setVisible(false);
+            this.setEnabled(false);
         }
     }//GEN-LAST:event_btnSairActionPerformed
 
@@ -281,14 +225,125 @@ public class FRM_Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBoletos;
-    private javax.swing.JButton btnCartoes;
     private javax.swing.JButton btnDepositos;
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnSaldo1;
     private javax.swing.JButton btnSaque;
-    private javax.swing.JButton btnTransferencia;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblNome;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the homeCtrl
+     */
+    public HomeControl getHomeCtrl() {
+        return homeCtrl;
+    }
+
+    /**
+     * @param homeCtrl the homeCtrl to set
+     */
+    public void setHomeCtrl(HomeControl homeCtrl) {
+        this.homeCtrl = homeCtrl;
+    }
+
+    /**
+     * @return the frmLogin
+     */
+    public FRM_Login getFrmLogin() {
+        return frmLogin;
+    }
+
+    /**
+     * @param frmLogin the frmLogin to set
+     */
+    public void setFrmLogin(FRM_Login frmLogin) {
+        this.frmLogin = frmLogin;
+    }
+
+    /**
+     * @return the btnDepositos
+     */
+    public javax.swing.JButton getBtnDepositos() {
+        return btnDepositos;
+    }
+
+    /**
+     * @param btnDepositos the btnDepositos to set
+     */
+    public void setBtnDepositos(javax.swing.JButton btnDepositos) {
+        this.btnDepositos = btnDepositos;
+    }
+
+    /**
+     * @return the btnSair
+     */
+    public javax.swing.JButton getBtnSair() {
+        return btnSair;
+    }
+
+    /**
+     * @param btnSair the btnSair to set
+     */
+    public void setBtnSair(javax.swing.JButton btnSair) {
+        this.btnSair = btnSair;
+    }
+
+    /**
+     * @return the btnSaldo1
+     */
+    public javax.swing.JButton getBtnSaldo1() {
+        return btnSaldo1;
+    }
+
+    /**
+     * @param btnSaldo1 the btnSaldo1 to set
+     */
+    public void setBtnSaldo1(javax.swing.JButton btnSaldo1) {
+        this.btnSaldo1 = btnSaldo1;
+    }
+
+    /**
+     * @return the btnSaque
+     */
+    public javax.swing.JButton getBtnSaque() {
+        return btnSaque;
+    }
+
+    /**
+     * @param btnSaque the btnSaque to set
+     */
+    public void setBtnSaque(javax.swing.JButton btnSaque) {
+        this.btnSaque = btnSaque;
+    }
+
+    /**
+     * @return the jPanel1
+     */
+    public javax.swing.JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    /**
+     * @param jPanel1 the jPanel1 to set
+     */
+    public void setjPanel1(javax.swing.JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    /**
+     * @return the lblNome
+     */
+    public javax.swing.JLabel getLblNome() {
+        return lblNome;
+    }
+
+    /**
+     * @param lblNome the lblNome to set
+     */
+    public void setLblNome(javax.swing.JLabel lblNome) {
+        this.lblNome = lblNome;
+    }
+
+    
 }

@@ -23,6 +23,10 @@ public class LoginDAO {
     private PreparedStatement stm;
     private ResultSet rs;
     private DaoConexao dao;
+    // variaveis
+    private static long idCliente;
+    private static long idConta;
+    private static String nome;
 
     public LoginDAO() {
         dao = new DaoConexao();
@@ -34,6 +38,7 @@ public class LoginDAO {
 
     }
 
+    // método para validar login
     public boolean validaLogin(long conta, String senha) throws SQLException {
         // string com comando para select para verificar o login
         String comando = "SELECT * FROM CONTA WHERE ID_CONTA = ? AND SENHA = ?;";
@@ -44,10 +49,48 @@ public class LoginDAO {
         stm.setString(2, senha);
         // executa o comando com result set para trabalhar com retorno de dados do banco
         rs = stm.executeQuery();
-        if (rs.next()) {    
+        if (rs.next()) {
+            clienteValido(conta);
+            setIdConta(conta);
             return true;
         } else {
             return false;
         }
+    }
+
+    // método para retornar dados do cliente dono do login
+    public void clienteValido(long conta) throws SQLException {
+        String comando = "SELECT * FROM CLIENTES WHERE ID_CLIENTE = (SELECT ID_CLIENTE FROM CONTA WHERE ID_CONTA = ?);";
+        stm = conn.prepareStatement(comando);
+        stm.setLong(1, conta);
+        rs = stm.executeQuery();
+        if (rs.next()) {
+            setIdCliente(rs.getLong("ID_Cliente"));
+            setNome(rs.getString("NomeCliente"));
+        }
+    }
+
+    public long getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(long idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+     public long getIdConta() {
+        return idConta;
+    }
+
+    public void setIdConta(long idConta) {
+        this.idConta = idConta;
     }
 }
