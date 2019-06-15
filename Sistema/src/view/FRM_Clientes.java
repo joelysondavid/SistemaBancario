@@ -36,7 +36,6 @@ public class FRM_Clientes extends javax.swing.JFrame {
     private void initComponents() {
 
         panelCliente = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -62,19 +61,35 @@ public class FRM_Clientes extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Clientes");
 
+<<<<<<< HEAD
         panelCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setText("Novo Cliente");
+=======
+        panelCliente.setBackground(new java.awt.Color(51, 51, 51));
+        panelCliente.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Novo Cliente", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Consolas", 1, 24), new java.awt.Color(255, 255, 255))); // NOI18N
+        panelCliente.setForeground(new java.awt.Color(255, 255, 255));
+>>>>>>> RafaelRocha
 
+        jLabel2.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nome: ");
 
+        jLabel3.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Endereço: ");
 
+        jLabel4.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("E-mail: ");
 
+        jLabel5.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Telefone: ");
 
+        jLabel6.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("CPF/CNPJ: ");
 
         txtNome.addActionListener(new java.awt.event.ActionListener() {
@@ -89,34 +104,53 @@ public class FRM_Clientes extends javax.swing.JFrame {
             }
         });
 
+        btnCadastrar.setBackground(new java.awt.Color(0, 0, 0));
+        btnCadastrar.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/addCadastro.png"))); // NOI18N
         btnCadastrar.setText("Cadastrar");
-        btnCadastrar.setMaximumSize(new java.awt.Dimension(90, 25));
-        btnCadastrar.setMinimumSize(new java.awt.Dimension(90, 25));
-        btnCadastrar.setPreferredSize(new java.awt.Dimension(95, 25));
+        btnCadastrar.setMaximumSize(new java.awt.Dimension(90, 35));
+        btnCadastrar.setMinimumSize(new java.awt.Dimension(90, 35));
+        btnCadastrar.setPreferredSize(new java.awt.Dimension(95, 35));
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarActionPerformed(evt);
             }
         });
 
+        btnCancelar.setBackground(new java.awt.Color(0, 0, 0));
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iconCancelar.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
-        btnCancelar.setPreferredSize(new java.awt.Dimension(90, 25));
+        btnCancelar.setMaximumSize(new java.awt.Dimension(90, 35));
+        btnCancelar.setMinimumSize(new java.awt.Dimension(90, 35));
+        btnCancelar.setPreferredSize(new java.awt.Dimension(95, 35));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
 
+        btnDel.setBackground(new java.awt.Color(0, 0, 0));
+        btnDel.setForeground(new java.awt.Color(255, 255, 255));
+        btnDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/IconDelete.png"))); // NOI18N
         btnDel.setText("Deletar");
-        btnDel.setPreferredSize(new java.awt.Dimension(90, 25));
+        btnDel.setMaximumSize(new java.awt.Dimension(90, 35));
+        btnDel.setMinimumSize(new java.awt.Dimension(90, 35));
+        btnDel.setPreferredSize(new java.awt.Dimension(95, 35));
         btnDel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDelActionPerformed(evt);
             }
         });
 
+        btnUpdate.setBackground(new java.awt.Color(0, 0, 0));
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iconAlterar.png"))); // NOI18N
         btnUpdate.setText("Alterar");
-        btnUpdate.setPreferredSize(new java.awt.Dimension(90, 25));
+        btnUpdate.setMaximumSize(new java.awt.Dimension(90, 35));
+        btnUpdate.setMinimumSize(new java.awt.Dimension(90, 35));
+        btnUpdate.setPreferredSize(new java.awt.Dimension(95, 35));
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -155,6 +189,7 @@ public class FRM_Clientes extends javax.swing.JFrame {
                             .addComponent(txtEndereco)
                             .addComponent(txtNome)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelClienteLayout.createSequentialGroup()
+<<<<<<< HEAD
                                 .addGroup(panelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(panelClienteLayout.createSequentialGroup()
                                         .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -177,15 +212,43 @@ public class FRM_Clientes extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addGap(290, 290, 290))))
+=======
+                                .addGroup(panelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(btnCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                                    .addComponent(txtTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))
+                                .addGap(74, 74, 74)
+                                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(panelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelClienteLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel6)
+                                        .addGap(18, 18, 18))
+                                    .addGroup(panelClienteLayout.createSequentialGroup()
+                                        .addGap(78, 78, 78)
+                                        .addComponent(btnDel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(panelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCPF_CNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap())
+                    .addGroup(panelClienteLayout.createSequentialGroup()
+                        .addComponent(lblHoje)
+                        .addGap(290, 780, Short.MAX_VALUE))))
+>>>>>>> RafaelRocha
         );
         panelClienteLayout.setVerticalGroup(
             panelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelClienteLayout.createSequentialGroup()
                 .addContainerGap()
+<<<<<<< HEAD
                 .addGroup(panelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(lblHoje))
                 .addGap(18, 18, 18)
+=======
+                .addComponent(lblHoje)
+                .addGap(33, 33, 33)
+>>>>>>> RafaelRocha
                 .addGroup(panelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -212,8 +275,16 @@ public class FRM_Clientes extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+<<<<<<< HEAD
         panelTabela.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Clientes"));
 
+=======
+        panelTabela.setBackground(new java.awt.Color(51, 51, 51));
+        panelTabela.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Clientes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Consolas", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+
+        tbClientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tbClientes.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+>>>>>>> RafaelRocha
         tbClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -230,6 +301,10 @@ public class FRM_Clientes extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+<<<<<<< HEAD
+=======
+        tbClientes.setGridColor(new java.awt.Color(255, 255, 255));
+>>>>>>> RafaelRocha
         tbClientes.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tbClientes);
         if (tbClientes.getColumnModel().getColumnCount() > 0) {
@@ -242,10 +317,25 @@ public class FRM_Clientes extends javax.swing.JFrame {
             tbClientes.getColumnModel().getColumn(5).setResizable(false);
         }
 
+<<<<<<< HEAD
         lblProcuraNome.setText("Procura pelo nome contendo:");
 
         btnProcurar.setText("Procurar");
         btnProcurar.setPreferredSize(new java.awt.Dimension(85, 25));
+=======
+        lblProcuraNome.setBackground(new java.awt.Color(255, 255, 255));
+        lblProcuraNome.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        lblProcuraNome.setForeground(new java.awt.Color(255, 255, 255));
+        lblProcuraNome.setText("Procurar pelo nome contendo:");
+
+        btnProcurar.setBackground(new java.awt.Color(0, 0, 0));
+        btnProcurar.setForeground(new java.awt.Color(255, 255, 255));
+        btnProcurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iconProcurar.png"))); // NOI18N
+        btnProcurar.setText("Procurar");
+        btnProcurar.setMaximumSize(new java.awt.Dimension(90, 35));
+        btnProcurar.setMinimumSize(new java.awt.Dimension(90, 35));
+        btnProcurar.setPreferredSize(new java.awt.Dimension(95, 35));
+>>>>>>> RafaelRocha
         btnProcurar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProcurarActionPerformed(evt);
@@ -259,7 +349,11 @@ public class FRM_Clientes extends javax.swing.JFrame {
             .addGroup(panelTabelaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 733, Short.MAX_VALUE)
+=======
+                    .addComponent(jScrollPane1)
+>>>>>>> RafaelRocha
                     .addGroup(panelTabelaLayout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addGroup(panelTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,7 +361,11 @@ public class FRM_Clientes extends javax.swing.JFrame {
                             .addGroup(panelTabelaLayout.createSequentialGroup()
                                 .addComponent(txtProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+<<<<<<< HEAD
                                 .addComponent(btnProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+=======
+                                .addComponent(btnProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+>>>>>>> RafaelRocha
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -291,9 +389,15 @@ public class FRM_Clientes extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+<<<<<<< HEAD
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+=======
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelTabela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> RafaelRocha
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -421,7 +525,10 @@ public class FRM_Clientes extends javax.swing.JFrame {
     private javax.swing.JButton btnDel;
     private javax.swing.JButton btnProcurar;
     private javax.swing.JButton btnUpdate;
+<<<<<<< HEAD
     private javax.swing.JLabel jLabel1;
+=======
+>>>>>>> RafaelRocha
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -467,20 +574,6 @@ public class FRM_Clientes extends javax.swing.JFrame {
      */
     public void setBtnCancelar(javax.swing.JButton btnCancelar) {
         this.btnCancelar = btnCancelar;
-    }
-
-    /**
-     * @return the jLabel1
-     */
-    public javax.swing.JLabel getjLabel1() {
-        return jLabel1;
-    }
-
-    /**
-     * @param jLabel1 the jLabel1 to set
-     */
-    public void setjLabel1(javax.swing.JLabel jLabel1) {
-        this.jLabel1 = jLabel1;
     }
 
     /**

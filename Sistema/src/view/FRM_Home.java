@@ -47,9 +47,15 @@ public class FRM_Home extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+<<<<<<< HEAD
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Home", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Consolas", 1, 24), new java.awt.Color(0, 0, 0))); // NOI18N
 
         lblNome.setBackground(new java.awt.Color(255, 255, 255));
+=======
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Home", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Consolas", 1, 24), new java.awt.Color(255, 255, 255))); // NOI18N
+
+        lblNome.setBackground(new java.awt.Color(0, 0, 0));
+>>>>>>> RafaelRocha
         lblNome.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
         lblNome.setForeground(new java.awt.Color(255, 255, 255));
         lblNome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -59,10 +65,18 @@ public class FRM_Home extends javax.swing.JFrame {
         btnSaldo1.setBackground(new java.awt.Color(0, 0, 0));
         btnSaldo1.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         btnSaldo1.setForeground(new java.awt.Color(255, 255, 255));
+<<<<<<< HEAD
         btnSaldo1.setText("Saldo");
         btnSaldo1.setMaximumSize(new java.awt.Dimension(90, 35));
         btnSaldo1.setMinimumSize(new java.awt.Dimension(90, 35));
         btnSaldo1.setPreferredSize(new java.awt.Dimension(90, 35));
+=======
+        btnSaldo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iconExtratoSaldo.png"))); // NOI18N
+        btnSaldo1.setText("Saldo");
+        btnSaldo1.setMaximumSize(new java.awt.Dimension(90, 35));
+        btnSaldo1.setMinimumSize(new java.awt.Dimension(90, 35));
+        btnSaldo1.setPreferredSize(new java.awt.Dimension(95, 35));
+>>>>>>> RafaelRocha
         btnSaldo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaldo1ActionPerformed(evt);
@@ -72,10 +86,18 @@ public class FRM_Home extends javax.swing.JFrame {
         btnDepositos.setBackground(new java.awt.Color(0, 0, 0));
         btnDepositos.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         btnDepositos.setForeground(new java.awt.Color(255, 255, 255));
+<<<<<<< HEAD
         btnDepositos.setText("Depositos");
         btnDepositos.setMaximumSize(new java.awt.Dimension(90, 35));
         btnDepositos.setMinimumSize(new java.awt.Dimension(90, 35));
         btnDepositos.setPreferredSize(new java.awt.Dimension(90, 35));
+=======
+        btnDepositos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iconDeposito.png"))); // NOI18N
+        btnDepositos.setText("Depositos");
+        btnDepositos.setMaximumSize(new java.awt.Dimension(90, 35));
+        btnDepositos.setMinimumSize(new java.awt.Dimension(90, 35));
+        btnDepositos.setPreferredSize(new java.awt.Dimension(95, 35));
+>>>>>>> RafaelRocha
         btnDepositos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDepositosActionPerformed(evt);
@@ -85,10 +107,18 @@ public class FRM_Home extends javax.swing.JFrame {
         btnSaque.setBackground(new java.awt.Color(0, 0, 0));
         btnSaque.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         btnSaque.setForeground(new java.awt.Color(255, 255, 255));
+<<<<<<< HEAD
         btnSaque.setText("Saque");
         btnSaque.setMaximumSize(new java.awt.Dimension(90, 35));
         btnSaque.setMinimumSize(new java.awt.Dimension(90, 35));
         btnSaque.setPreferredSize(new java.awt.Dimension(90, 35));
+=======
+        btnSaque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iconSaque.png"))); // NOI18N
+        btnSaque.setText("Saque");
+        btnSaque.setMaximumSize(new java.awt.Dimension(90, 35));
+        btnSaque.setMinimumSize(new java.awt.Dimension(90, 35));
+        btnSaque.setPreferredSize(new java.awt.Dimension(95, 35));
+>>>>>>> RafaelRocha
         btnSaque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaqueActionPerformed(evt);
@@ -98,10 +128,18 @@ public class FRM_Home extends javax.swing.JFrame {
         btnSair.setBackground(new java.awt.Color(0, 0, 0));
         btnSair.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         btnSair.setForeground(new java.awt.Color(255, 255, 255));
+<<<<<<< HEAD
         btnSair.setText("Sair");
         btnSair.setMaximumSize(new java.awt.Dimension(90, 35));
         btnSair.setMinimumSize(new java.awt.Dimension(90, 35));
         btnSair.setPreferredSize(new java.awt.Dimension(90, 35));
+=======
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iconCancelar.png"))); // NOI18N
+        btnSair.setText("Sair");
+        btnSair.setMaximumSize(new java.awt.Dimension(90, 35));
+        btnSair.setMinimumSize(new java.awt.Dimension(90, 35));
+        btnSair.setPreferredSize(new java.awt.Dimension(95, 35));
+>>>>>>> RafaelRocha
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
@@ -111,6 +149,10 @@ public class FRM_Home extends javax.swing.JFrame {
         btnDeletar.setBackground(new java.awt.Color(51, 51, 51));
         btnDeletar.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         btnDeletar.setForeground(new java.awt.Color(255, 255, 255));
+<<<<<<< HEAD
+=======
+        btnDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/IconDelete.png"))); // NOI18N
+>>>>>>> RafaelRocha
         btnDeletar.setText("Deletar Conta");
         btnDeletar.setBorder(null);
         btnDeletar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -128,6 +170,7 @@ public class FRM_Home extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addContainerGap(140, Short.MAX_VALUE)
                 .addComponent(lblNome)
                 .addGap(160, 160, 160))
@@ -144,10 +187,28 @@ public class FRM_Home extends javax.swing.JFrame {
                         .addGap(152, 152, 152)
                         .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+                .addGap(39, 39, 39)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblNome)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnDepositos, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSaldo1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSaque, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnDeletar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSair, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(50, 50, 50))))
+>>>>>>> RafaelRocha
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addComponent(lblNome)
                 .addGap(31, 31, 31)
                 .addComponent(btnSaldo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -160,6 +221,21 @@ public class FRM_Home extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
+=======
+                .addContainerGap()
+                .addComponent(lblNome)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSaldo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(btnSaque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDepositos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(30, Short.MAX_VALUE))
+>>>>>>> RafaelRocha
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -168,8 +244,13 @@ public class FRM_Home extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+<<<<<<< HEAD
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+=======
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> RafaelRocha
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

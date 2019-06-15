@@ -27,8 +27,13 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
               <Component id="jPanel1" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+=======
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+>>>>>>> RafaelRocha
           </Group>
       </Group>
     </DimensionLayout>
@@ -55,7 +60,11 @@
                 <LineBorder thickness="2"/>
               </Border>
               <Font PropertyName="font" name="Consolas" size="24" style="1"/>
+<<<<<<< HEAD
               <Color PropertyName="color" blue="0" green="0" red="0" type="rgb"/>
+=======
+              <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+>>>>>>> RafaelRocha
             </TitledBorder>
           </Border>
         </Property>
@@ -65,6 +74,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
                   <EmptySpace pref="140" max="32767" attributes="0"/>
                   <Component id="lblNome" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
@@ -86,12 +96,35 @@
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
+=======
+                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="lblNome" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="btnDepositos" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
+                              <Component id="btnSaldo1" min="-2" pref="115" max="-2" attributes="0"/>
+                              <Component id="btnSaque" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="69" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="btnDeletar" alignment="1" min="-2" pref="130" max="-2" attributes="0"/>
+                              <Component id="btnSair" alignment="1" min="-2" pref="130" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+>>>>>>> RafaelRocha
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
                   <Component id="lblNome" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Component id="btnSaldo1" min="-2" max="-2" attributes="0"/>
@@ -104,6 +137,23 @@
                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                   <Component id="btnDeletar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+=======
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lblNome" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnSaldo1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnDeletar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <Component id="btnSaque" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnDepositos" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSair" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="30" max="32767" attributes="0"/>
+>>>>>>> RafaelRocha
               </Group>
           </Group>
         </DimensionLayout>
@@ -112,7 +162,11 @@
         <Component class="javax.swing.JLabel" name="lblNome">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+<<<<<<< HEAD
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
+=======
+              <Color blue="0" green="0" red="0" type="rgb"/>
+>>>>>>> RafaelRocha
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Consolas" size="14" style="1"/>
@@ -136,6 +190,12 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+<<<<<<< HEAD
+=======
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imgs/iconExtratoSaldo.png"/>
+            </Property>
+>>>>>>> RafaelRocha
             <Property name="text" type="java.lang.String" value="Saldo"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[90, 35]"/>
@@ -144,7 +204,11 @@
               <Dimension value="[90, 35]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<<<<<<< HEAD
               <Dimension value="[90, 35]"/>
+=======
+              <Dimension value="[95, 35]"/>
+>>>>>>> RafaelRocha
             </Property>
           </Properties>
           <Events>
@@ -162,6 +226,12 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+<<<<<<< HEAD
+=======
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imgs/iconDeposito.png"/>
+            </Property>
+>>>>>>> RafaelRocha
             <Property name="text" type="java.lang.String" value="Depositos"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[90, 35]"/>
@@ -170,7 +240,11 @@
               <Dimension value="[90, 35]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<<<<<<< HEAD
               <Dimension value="[90, 35]"/>
+=======
+              <Dimension value="[95, 35]"/>
+>>>>>>> RafaelRocha
             </Property>
           </Properties>
           <Events>
@@ -188,6 +262,12 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+<<<<<<< HEAD
+=======
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imgs/iconSaque.png"/>
+            </Property>
+>>>>>>> RafaelRocha
             <Property name="text" type="java.lang.String" value="Saque"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[90, 35]"/>
@@ -196,7 +276,11 @@
               <Dimension value="[90, 35]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<<<<<<< HEAD
               <Dimension value="[90, 35]"/>
+=======
+              <Dimension value="[95, 35]"/>
+>>>>>>> RafaelRocha
             </Property>
           </Properties>
           <Events>
@@ -214,6 +298,12 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+<<<<<<< HEAD
+=======
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imgs/iconCancelar.png"/>
+            </Property>
+>>>>>>> RafaelRocha
             <Property name="text" type="java.lang.String" value="Sair"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[90, 35]"/>
@@ -222,7 +312,11 @@
               <Dimension value="[90, 35]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+<<<<<<< HEAD
               <Dimension value="[90, 35]"/>
+=======
+              <Dimension value="[95, 35]"/>
+>>>>>>> RafaelRocha
             </Property>
           </Properties>
           <Events>
@@ -240,6 +334,12 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+<<<<<<< HEAD
+=======
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imgs/IconDelete.png"/>
+            </Property>
+>>>>>>> RafaelRocha
             <Property name="text" type="java.lang.String" value="Deletar Conta"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
