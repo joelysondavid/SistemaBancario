@@ -28,7 +28,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="32" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -67,24 +67,21 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="lblNome" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
+                      <Component id="lblNome" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="btnDepositos" pref="145" max="32767" attributes="0"/>
-                              <Component id="btnSaque" alignment="0" pref="145" max="32767" attributes="0"/>
-                              <Component id="btnSaldo1" alignment="0" pref="145" max="32767" attributes="0"/>
+                              <Component id="btnDepositos" max="32767" attributes="0"/>
+                              <Component id="btnSaque" alignment="0" pref="180" max="32767" attributes="0"/>
+                              <Component id="btnSaldo1" alignment="0" pref="180" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="47" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnDeletar" alignment="1" min="-2" pref="145" max="-2" attributes="0"/>
-                              <Component id="btnSair" alignment="1" min="-2" pref="145" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btnDeletar" max="32767" attributes="0"/>
+                              <Component id="btnSair" pref="180" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace pref="35" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -255,9 +252,9 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imgs/IconDelete.png"/>
+              <Image iconType="3" name="/imgs/iconConfigurar.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Deletar Conta"/>
+            <Property name="text" type="java.lang.String" value="Configurar Conta"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor em Forma de M&#xe3;o"/>
             </Property>
