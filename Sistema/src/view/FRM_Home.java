@@ -56,7 +56,7 @@ public class FRM_Home extends javax.swing.JFrame {
         lblNome.setText("Nome do Cliente");
         lblNome.setAlignmentX(0.5F);
 
-        btnSaldo1.setBackground(new java.awt.Color(0, 0, 0));
+        btnSaldo1.setBackground(new java.awt.Color(51, 51, 51));
         btnSaldo1.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         btnSaldo1.setForeground(new java.awt.Color(255, 255, 255));
         btnSaldo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iconExtratoSaldo.png"))); // NOI18N
@@ -70,7 +70,7 @@ public class FRM_Home extends javax.swing.JFrame {
             }
         });
 
-        btnDepositos.setBackground(new java.awt.Color(0, 0, 0));
+        btnDepositos.setBackground(new java.awt.Color(51, 51, 51));
         btnDepositos.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         btnDepositos.setForeground(new java.awt.Color(255, 255, 255));
         btnDepositos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iconDeposito.png"))); // NOI18N
@@ -84,7 +84,7 @@ public class FRM_Home extends javax.swing.JFrame {
             }
         });
 
-        btnSaque.setBackground(new java.awt.Color(0, 0, 0));
+        btnSaque.setBackground(new java.awt.Color(51, 51, 51));
         btnSaque.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         btnSaque.setForeground(new java.awt.Color(255, 255, 255));
         btnSaque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iconSaque.png"))); // NOI18N
@@ -98,7 +98,7 @@ public class FRM_Home extends javax.swing.JFrame {
             }
         });
 
-        btnSair.setBackground(new java.awt.Color(0, 0, 0));
+        btnSair.setBackground(new java.awt.Color(51, 51, 51));
         btnSair.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         btnSair.setForeground(new java.awt.Color(255, 255, 255));
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iconCancelar.png"))); // NOI18N
@@ -117,7 +117,6 @@ public class FRM_Home extends javax.swing.JFrame {
         btnDeletar.setForeground(new java.awt.Color(255, 255, 255));
         btnDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/IconDelete.png"))); // NOI18N
         btnDeletar.setText("Deletar Conta");
-        btnDeletar.setBorder(null);
         btnDeletar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnDeletar.setMaximumSize(new java.awt.Dimension(90, 35));
         btnDeletar.setMinimumSize(new java.awt.Dimension(90, 35));
@@ -139,15 +138,15 @@ public class FRM_Home extends javax.swing.JFrame {
                         .addComponent(lblNome)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnDepositos, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                            .addComponent(btnSaque, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                            .addComponent(btnSaldo1, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnDepositos, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSaldo1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSaque, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnDeletar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSair, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(50, 50, 50))))
+                            .addComponent(btnDeletar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSair, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

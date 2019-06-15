@@ -97,7 +97,7 @@ public class FRM_Clientes extends javax.swing.JFrame {
             }
         });
 
-        btnCadastrar.setBackground(new java.awt.Color(0, 0, 0));
+        btnCadastrar.setBackground(new java.awt.Color(51, 51, 51));
         btnCadastrar.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/addCadastro.png"))); // NOI18N
@@ -111,7 +111,7 @@ public class FRM_Clientes extends javax.swing.JFrame {
             }
         });
 
-        btnCancelar.setBackground(new java.awt.Color(0, 0, 0));
+        btnCancelar.setBackground(new java.awt.Color(51, 51, 51));
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iconCancelar.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
@@ -124,7 +124,7 @@ public class FRM_Clientes extends javax.swing.JFrame {
             }
         });
 
-        btnDel.setBackground(new java.awt.Color(0, 0, 0));
+        btnDel.setBackground(new java.awt.Color(51, 51, 51));
         btnDel.setForeground(new java.awt.Color(255, 255, 255));
         btnDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/IconDelete.png"))); // NOI18N
         btnDel.setText("Deletar");
@@ -137,7 +137,7 @@ public class FRM_Clientes extends javax.swing.JFrame {
             }
         });
 
-        btnUpdate.setBackground(new java.awt.Color(0, 0, 0));
+        btnUpdate.setBackground(new java.awt.Color(51, 51, 51));
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iconAlterar.png"))); // NOI18N
         btnUpdate.setText("Alterar");
@@ -275,7 +275,7 @@ public class FRM_Clientes extends javax.swing.JFrame {
         lblProcuraNome.setForeground(new java.awt.Color(255, 255, 255));
         lblProcuraNome.setText("Procurar pelo nome contendo:");
 
-        btnProcurar.setBackground(new java.awt.Color(0, 0, 0));
+        btnProcurar.setBackground(new java.awt.Color(51, 51, 51));
         btnProcurar.setForeground(new java.awt.Color(255, 255, 255));
         btnProcurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iconProcurar.png"))); // NOI18N
         btnProcurar.setText("Procurar");

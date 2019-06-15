@@ -68,7 +68,7 @@ public class FRM_Deposito extends javax.swing.JFrame {
         lblCliente.setForeground(new java.awt.Color(255, 255, 255));
         lblCliente.setText("Nome do Cliente");
 
-        btnVoltar.setBackground(new java.awt.Color(0, 0, 0));
+        btnVoltar.setBackground(new java.awt.Color(51, 51, 51));
         btnVoltar.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
         btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iconVoltar.png"))); // NOI18N
@@ -94,7 +94,7 @@ public class FRM_Deposito extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Valor do Deposito R$:");
 
-        btnConfirmar.setBackground(new java.awt.Color(0, 0, 0));
+        btnConfirmar.setBackground(new java.awt.Color(51, 51, 51));
         btnConfirmar.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         btnConfirmar.setForeground(new java.awt.Color(255, 255, 255));
         btnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iconDeposito.png"))); // NOI18N

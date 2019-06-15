@@ -63,7 +63,7 @@ public class FRM_Login extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Senha:");
 
-        btnEntrar.setBackground(new java.awt.Color(0, 0, 0));
+        btnEntrar.setBackground(new java.awt.Color(51, 51, 51));
         btnEntrar.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
         btnEntrar.setText("Entrar");
@@ -82,12 +82,11 @@ public class FRM_Login extends javax.swing.JFrame {
             }
         });
 
-        btnCadastrar.setBackground(new java.awt.Color(0, 0, 0));
+        btnCadastrar.setBackground(new java.awt.Color(51, 51, 51));
         btnCadastrar.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/addCadastro.png"))); // NOI18N
         btnCadastrar.setText("Ainda não é cliente? clique aqui!");
-        btnCadastrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCadastrar.setMaximumSize(new java.awt.Dimension(90, 35));
         btnCadastrar.setMinimumSize(new java.awt.Dimension(90, 35));
@@ -98,7 +97,7 @@ public class FRM_Login extends javax.swing.JFrame {
             }
         });
 
-        btnSair.setBackground(new java.awt.Color(0, 0, 0));
+        btnSair.setBackground(new java.awt.Color(51, 51, 51));
         btnSair.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         btnSair.setForeground(new java.awt.Color(255, 255, 255));
         btnSair.setText("Sair");

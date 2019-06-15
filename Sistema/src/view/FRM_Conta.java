@@ -73,7 +73,7 @@ public class FRM_Conta extends javax.swing.JFrame {
             }
         });
 
-        btnAdicionar.setBackground(new java.awt.Color(0, 0, 0));
+        btnAdicionar.setBackground(new java.awt.Color(51, 51, 51));
         btnAdicionar.setForeground(new java.awt.Color(255, 255, 255));
         btnAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/addConta.png"))); // NOI18N
         btnAdicionar.setText("Adicionar");
@@ -86,7 +86,7 @@ public class FRM_Conta extends javax.swing.JFrame {
             }
         });
 
-        btnDesativar.setBackground(new java.awt.Color(0, 0, 0));
+        btnDesativar.setBackground(new java.awt.Color(51, 51, 51));
         btnDesativar.setForeground(new java.awt.Color(255, 255, 255));
         btnDesativar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iconCancelar.png"))); // NOI18N
         btnDesativar.setText("Desativar");
@@ -94,7 +94,7 @@ public class FRM_Conta extends javax.swing.JFrame {
         btnDesativar.setMinimumSize(new java.awt.Dimension(90, 35));
         btnDesativar.setPreferredSize(new java.awt.Dimension(95, 35));
 
-        btnAlterar.setBackground(new java.awt.Color(0, 0, 0));
+        btnAlterar.setBackground(new java.awt.Color(51, 51, 51));
         btnAlterar.setForeground(new java.awt.Color(255, 255, 255));
         btnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iconAlterar.png"))); // NOI18N
         btnAlterar.setText("Alterar");
@@ -128,10 +128,11 @@ public class FRM_Conta extends javax.swing.JFrame {
             panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelContaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(btnAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSaldo))
+                .addGroup(panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtSaldo, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(btnAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
