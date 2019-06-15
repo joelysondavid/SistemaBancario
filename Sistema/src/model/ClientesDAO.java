@@ -10,7 +10,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -39,27 +42,33 @@ public class ClientesDAO {
 
     // método de novo cliente
     public int insertCliente(Clientes cliente) throws SQLException {
-        String comando = "INSERT INTO Clientes (NomeCliente, EnderecoCliente, Email, CPF_CNPJ, Telefone) VALUES (?, ?, ?, ?, ?)";
-        // stm recebe a preparação da query com os dados passados com um metodo para retornar a chave gerada
-        stm = conn.prepareStatement(comando, PreparedStatement.RETURN_GENERATED_KEYS);
-        stm.setString(1, cliente.getNomeCliente());
-        stm.setString(2, cliente.getEnderecoCliente());
-        stm.setString(3, cliente.getEmail());
-        stm.setInt(4, cliente.getDocumento());
-        stm.setInt(5, cliente.getTelefone());
-        // executa comando sql
-        stm.executeUpdate();
+           Date data = new Date();
+           SimpleDateFormat formatar = new SimpleDateFormat("yyyy/MM/dd");
+           String hoje = formatar.format(data);
+        
+            String comando = "INSERT INTO Clientes (NomeCliente, EnderecoCliente, Email, CPF_CNPJ, Telefone, ClienteDesde) VALUES (?, ?, ?, ?, ?, ?)";
 
-        // usa rs para trabalhar com recebimento de dados
-        rs = stm.getGeneratedKeys();
-        // atualiza codigo com auto_increment do objeto instanciado
-        if (rs.next()) {
-            cliente.setCodigoCliente(rs.getInt(1));
-        }
-        JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!", "Cadastrado", JOptionPane.INFORMATION_MESSAGE);
-        dao.closeConnection(conn, stm, rs);
-        // e por fim retorna o codigo do novo cliente
-        return cliente.getCodigoCliente();
+            // stm recebe a preparação da query com os dados passados com um metodo para retornar a chave gerada
+            stm = conn.prepareStatement(comando, PreparedStatement.RETURN_GENERATED_KEYS);
+            stm.setString(1, cliente.getNomeCliente());
+            stm.setString(2, cliente.getEnderecoCliente());
+            stm.setString(3, cliente.getEmail());
+            stm.setLong(4, cliente.getDocumento());
+            stm.setString(5, cliente.getTelefone());
+            stm.setString(6, hoje);
+            // executa comando sql
+            stm.executeUpdate();
+
+            // usa rs para trabalhar com recebimento de dados
+            rs = stm.getGeneratedKeys();
+            // atualiza codigo com auto_increment do objeto instanciado
+            if (rs.next()) {
+                cliente.setCodigoCliente(rs.getInt(1));
+            }
+            JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!", "Cadastrado", JOptionPane.INFORMATION_MESSAGE);
+            // e por fim retorna o codigo do novo cliente
+            return cliente.getCodigoCliente();
+       
     }
 
     // método delete cliente
@@ -83,31 +92,75 @@ public class ClientesDAO {
         stm.setString(1, cliente.getNomeCliente());
         stm.setString(2, cliente.getEnderecoCliente());
         stm.setString(3, cliente.getEmail());
-        stm.setInt(4, cliente.getDocumento());
-        stm.setInt(5, cliente.getTelefone());
+        stm.setLong(4, cliente.getDocumento());
+        stm.setString(5, cliente.getTelefone());
         stm.setInt(6, codigo);
         // executa o comando UPDATE
         stm.executeUpdate();
-        // fecha as conexões
-        dao.closeConnection(conn, stm, rs);
     }
 
     // método procurar nome do Cliente
-    public Clientes procurarCliente(String nomeCliente) throws SQLException {
+    public ArrayList<Clientes> procurarCliente(String nomeCliente) throws SQLException {
+        // cria um array list de clientes
+        ArrayList<Clientes> clientes = new ArrayList<>();
         // comando select para procurar pelo nome do cliente
-        String comando = "SELECT * FROM Clientes WHERE NomeCliente = ?";
+        String comando = "SELECT * FROM Clientes WHERE NomeCliente LIKE ?;";
         // prepara o comando com a string
         stm = conn.prepareStatement(comando);
-        // seta o nome do cliente no comando select
-        stm.setString(1, nomeCliente);
-        // executa o comando
+        stm.setString(1, "%" + nomeCliente + "%");
+        // método result set para trabalhar com recebimento de dados do banco
         rs = stm.executeQuery();
-        // mota o cliente conforme os dados do BD
-        Clientes cliente = new Clientes(rs.getInt("ID_Cliente"), rs.getString("NomeCliente"), rs.getString("EnderecoCliente"), rs.getString("Email"), rs.getInt("CPF_CNPJ"), rs.getInt("Telefone"));
-        // fecha as conexões
-        dao.closeConnection(conn, stm, rs);
+        while (rs.next()) {
+            clientes.add(new Clientes(rs.getInt("ID_Cliente"), rs.getString("NomeCliente"),
+                    rs.getString("EnderecoCliente"), rs.getString("Email"),
+                    rs.getLong("CPF_CNPJ"), rs.getString("Telefone")));
+        }
+        // método para caso não encontre cliente cadastrado com aquele nome
         // retorna o objeto Cliente
+        return clientes;
+    }
+
+    // sobrescrever método procurar cliente
+    public Clientes procurarCliente(int CPF_CNPJ) throws SQLException {
+        // cria objeto cliente
+        Clientes cliente;
+        // String com o comenado select para buscar cnpj do cliente
+        String comando = "SELECT * FROM CLIENTES WHERE CPF_CNPJ = ?;";
+        // prepara nosso comando sql
+        stm = conn.prepareStatement(comando);
+        // seta o valor que iremos passar para nosso campo "?"
+        stm.setInt(1, CPF_CNPJ);
+        // execura o comando
+        rs = stm.executeQuery();
+        // chama rs para receber os dados do banco
+        if (rs.next()) {
+            cliente = new Clientes(rs.getInt("ID_Cliente"), rs.getString("NomeCliente"),
+                    rs.getString("EnderecoCliente"), rs.getString("Email"),
+                    rs.getLong("CPF_CNPJ"), rs.getString("Telefone"));
+        } else {
+            return null;
+        }
         return cliente;
+    }
+    // procurar cliente retirba boolean
+    // sobrescrever método procurar cliente
+    public boolean verificaCliente(long CPF_CNPJ) throws SQLException {
+        // cria objeto cliente
+        Clientes cliente;
+        // String com o comenado select para buscar cnpj do cliente
+        String comando = "SELECT * FROM CLIENTES WHERE CPF_CNPJ = ?;";
+        // prepara nosso comando sql
+        stm = conn.prepareStatement(comando);
+        // seta o valor que iremos passar para nosso campo "?"
+        stm.setLong(1, CPF_CNPJ);
+        // execura o comando
+        rs = stm.executeQuery();
+        // chama rs para receber os dados do banco
+        if (rs.next()) { // caso encontre um clietne com o CPF_CNPJ informado retorna true
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // mostra todos os clientes
@@ -122,10 +175,8 @@ public class ClientesDAO {
         rs = stm.executeQuery();
         while (rs.next()) {
             clientes.add(new Clientes(rs.getInt("ID_Cliente"), rs.getString("NomeCliente"),
-                    rs.getString("EnderecoCliente"), rs.getString("Email"),
-                    rs.getInt("CPF_CNPJ"), rs.getInt("Telefone")));
+                    rs.getString("EnderecoCliente"), rs.getString("Email"), rs.getLong("CPF_CNPJ"), rs.getString("Telefone")));
         }
-        dao.closeConnection(conn, stm, rs);
         return clientes;
     }
 }

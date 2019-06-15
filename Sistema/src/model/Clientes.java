@@ -1,8 +1,11 @@
 package model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
- * Caique Francisco - Atualizado 23/05
+ * Joelyson David
  */
 public class Clientes {
 
@@ -10,10 +13,11 @@ public class Clientes {
     private String nomeCliente;
     private String enderecoCliente;
     private String email;
-    private int documento;
-    private int telefone;
+    private long documento;
+    private String telefone;
+    private Date clienteDesde;
 
-    public Clientes(String nomeCliente, String enderecoCliente, String email, int documento, int telefone) {
+    public Clientes(String nomeCliente, String enderecoCliente, String email, long documento, String telefone) {
         this.nomeCliente = nomeCliente;
         this.enderecoCliente = enderecoCliente;
         this.documento = documento;
@@ -25,7 +29,7 @@ public class Clientes {
 
     }
 
-    Clientes(int codigoCliente, String nomeCliente, String enderecoCliente, String email, int documento, int telefone) {
+    Clientes(int codigoCliente, String nomeCliente, String enderecoCliente, String email, long documento, String telefone) {
         this.codigoCliente = codigoCliente;
         this.nomeCliente = nomeCliente;
         this.enderecoCliente = enderecoCliente;
@@ -45,15 +49,6 @@ public class Clientes {
     public void deletarClientes(int codigoCliente) {
 
     }
-
-    /*
-    public Clientes obterCliente(int codigoCliente){
-        return um cliente;
-    }
-    
-    public Clientes obterClientes(){
-        return todos clientes;
-    }*/
     public int getCodigoCliente() {
         return codigoCliente;
     }
@@ -78,11 +73,11 @@ public class Clientes {
         this.enderecoCliente = enderecoCliente;
     }
 
-    public int getDocumento() {
+    public long getDocumento() {
         return documento;
     }
 
-    public void setDocumento(int documento) {
+    public void setDocumento(long documento) {
         this.documento = documento;
     }
 
@@ -94,11 +89,11 @@ public class Clientes {
         this.email = email;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
