@@ -52,7 +52,6 @@ public class FRM_Login extends javax.swing.JFrame {
 
         panelLogin.setBackground(new java.awt.Color(51, 51, 51));
         panelLogin.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Consolas", 1, 24), new java.awt.Color(255, 255, 255))); // NOI18N
-        panelLogin.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
