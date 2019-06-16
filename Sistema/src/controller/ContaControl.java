@@ -62,6 +62,9 @@ public class ContaControl {
                     int op = JOptionPane.showConfirmDialog(null, "Confirmar alteração da senha?", "Confirma", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if (op == 0) {
                         contaDao.updateConta(novaSenha, codigo);
+                        frmCliente.getTxtSenhaAtual().setText("");
+                        frmCliente.getTxtNovaSenha().setText("");
+                        frmCliente.getTxtConfirmaSenha().setText("");
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "A nova senha não coincide com a confirmar senha!", "Alerta!", JOptionPane.WARNING_MESSAGE);

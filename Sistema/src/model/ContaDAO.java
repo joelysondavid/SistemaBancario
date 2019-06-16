@@ -87,6 +87,7 @@ public class ContaDAO {
         stm.setLong(2, conta);
         // executa o comando
         stm.executeUpdate();
+        
         JOptionPane.showMessageDialog(null, "Senha atualizada com sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
     }
     
