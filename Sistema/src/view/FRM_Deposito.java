@@ -97,7 +97,7 @@ public class FRM_Deposito extends javax.swing.JFrame {
         btnConfirmar.setBackground(new java.awt.Color(0, 0, 0));
         btnConfirmar.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         btnConfirmar.setForeground(new java.awt.Color(255, 255, 255));
-        btnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iconDeposito.png"))); // NOI18N
+        btnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/IconConfirmar.png"))); // NOI18N
         btnConfirmar.setText("Confirmar Deposito");
         btnConfirmar.setMaximumSize(new java.awt.Dimension(90, 35));
         btnConfirmar.setMinimumSize(new java.awt.Dimension(90, 35));

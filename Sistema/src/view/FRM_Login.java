@@ -73,6 +73,7 @@ public class FRM_Login extends javax.swing.JFrame {
         btnEntrar.setBackground(new java.awt.Color(0, 0, 0));
         btnEntrar.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/login.png"))); // NOI18N
         btnEntrar.setText("Entrar");
         btnEntrar.setMaximumSize(new java.awt.Dimension(90, 35));
         btnEntrar.setMinimumSize(new java.awt.Dimension(90, 35));
@@ -108,6 +109,7 @@ public class FRM_Login extends javax.swing.JFrame {
         btnSair.setBackground(new java.awt.Color(0, 0, 0));
         btnSair.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         btnSair.setForeground(new java.awt.Color(255, 255, 255));
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iconCancelar.png"))); // NOI18N
         btnSair.setText("Sair");
         btnSair.setMaximumSize(new java.awt.Dimension(90, 35));
         btnSair.setMinimumSize(new java.awt.Dimension(90, 35));
@@ -180,18 +182,6 @@ public class FRM_Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        if ((getTxtEmail().getText().equals("")) || (getTxtSenha().getText().equals(""))) {
-            JOptionPane.showMessageDialog(null, "Favor preencher os dois campos!", "Aviso!", JOptionPane.WARNING_MESSAGE);
-        } else {
-            try {
-                getLoginCtrl().validaLogin();
-            } catch (SQLException ex) {
-                Logger.getLogger(FRM_Login.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }//GEN-LAST:event_btnEntrarActionPerformed
-
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSenhaActionPerformed
@@ -226,6 +216,18 @@ public class FRM_Login extends javax.swing.JFrame {
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
+
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+        if ((getTxtEmail().getText().equals("")) || (getTxtSenha().getText().equals(""))) {
+            JOptionPane.showMessageDialog(null, "Favor preencher os dois campos!", "Aviso!", JOptionPane.WARNING_MESSAGE);
+        } else {
+            try {
+                getLoginCtrl().validaLogin();
+            } catch (SQLException ex) {
+                Logger.getLogger(FRM_Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
      * @param args the command line arguments
