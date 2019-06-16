@@ -35,7 +35,7 @@ public class ClientesControl {
 
     // incluir novo cliente
     public boolean insertCliente() throws SQLException {
-        // if (cpfValido() == true) {
+         if (cpfValido() == true) {
             if (!clienteDAO.verificaEmail(frmClientes.getTxtEmail().getText())) {
                 // instancia um novo objeto
                 cliente = new Clientes(frmClientes.getTxtNome().getText(), frmClientes.getTxtEndereco().getText(),
@@ -52,10 +52,10 @@ public class ClientesControl {
                 return false;
             }
 
-      /*  } else {
+        } else {
             JOptionPane.showMessageDialog(null, "CPF inválido, tente novamente!", "Aviso!", JOptionPane.WARNING_MESSAGE);
             return false;
-        }*/
+        }
     }
 
 // deletar cliente
