@@ -24,9 +24,9 @@ public class LoginDAO {
     private ResultSet rs;
     private DaoConexao dao;
     // variaveis
-    private static long idCliente;
-    private static long idConta;
-    private static String nome;
+    private static int idCliente = 0;
+    private static long idConta = 0;
+    private static String nome = null;
 
     public LoginDAO() {
         dao = new DaoConexao();
@@ -65,16 +65,16 @@ public class LoginDAO {
         stm.setLong(1, conta);
         rs = stm.executeQuery();
         if (rs.next()) {
-            setIdCliente(rs.getLong("ID_Cliente"));
+            setIdCliente(rs.getInt("ID_Cliente"));
             setNome(rs.getString("NomeCliente"));
         }
     }
 
-    public long getIdCliente() {
+    public int getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(long idCliente) {
+    public void setIdCliente(int idCliente) {
         this.idCliente = idCliente;
     }
 

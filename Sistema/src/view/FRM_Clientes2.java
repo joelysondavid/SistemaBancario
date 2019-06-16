@@ -2,7 +2,6 @@ package view;
 
 import controller.ApenasNumeros;
 import controller.ClientesControl;
-import controller.ContaControl;
 import java.awt.Component;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -15,19 +14,19 @@ import model.LoginDAO;
  *
  * @author Joelyson David
  */
-public class FRM_Clientes extends javax.swing.JFrame {
+public class FRM_Clientes2 extends javax.swing.JFrame {
 
     /**
      * Creates new form FRM_Clientes
      */
-    private ClientesControl clientesCtrl = new ClientesControl(FRM_Clientes.this);
-    private ContaControl contaCrtl = new ContaControl(this);
+    FRM_Clientes frmCli;
+    private ClientesControl clientesCtrl = new ClientesControl(frmCli);
     private LoginDAO loginDao = new LoginDAO();
-    private FRM_Login frmLogin = new FRM_Login();
+    FRM_Login frmLogin = new FRM_Login();
 
-    public FRM_Clientes() throws SQLException {
+    public FRM_Clientes2() throws SQLException {
         initComponents();
-//        clientesCtrl.mostrarClientes();
+        // clientesCtrl.mostrarClientes();
         if (frmLogin.chave == 'E') {
             clientesCtrl.mostraDados();
         }
@@ -60,15 +59,12 @@ public class FRM_Clientes extends javax.swing.JFrame {
         txtTelefone = new javax.swing.JFormattedTextField();
         lblHoje = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
-        panelConta = new javax.swing.JPanel();
-        lblSenhaAtual = new javax.swing.JLabel();
-        txtSenhaAtual = new javax.swing.JTextField();
-        btnAdicionar = new javax.swing.JButton();
-        btnAlterar = new javax.swing.JButton();
-        lblNovaSenha = new javax.swing.JLabel();
-        txtNovaSenha = new javax.swing.JTextField();
-        lblConfirmaSenha = new javax.swing.JLabel();
-        txtConfirmaSenha = new javax.swing.JTextField();
+        panelTabela = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbClientes = new javax.swing.JTable();
+        txtProcurar = new javax.swing.JTextField();
+        lblProcuraNome = new javax.swing.JLabel();
+        btnProcurar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Clientes");
@@ -266,96 +262,89 @@ public class FRM_Clientes extends javax.swing.JFrame {
                 .addContainerGap(57, Short.MAX_VALUE))
         );
 
-        panelConta.setBackground(new java.awt.Color(51, 51, 51));
-        panelConta.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Conta", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Consolas", 1, 24), new java.awt.Color(255, 255, 255))); // NOI18N
-        panelConta.setForeground(new java.awt.Color(255, 255, 255));
+        panelTabela.setBackground(new java.awt.Color(51, 51, 51));
+        panelTabela.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Clientes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Consolas", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        lblSenhaAtual.setBackground(new java.awt.Color(0, 0, 0));
-        lblSenhaAtual.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
-        lblSenhaAtual.setForeground(new java.awt.Color(255, 255, 255));
-        lblSenhaAtual.setText("Senha atual: ");
+        tbClientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tbClientes.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        tbClientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        btnAdicionar.setBackground(new java.awt.Color(0, 0, 0));
-        btnAdicionar.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/addConta.png"))); // NOI18N
-        btnAdicionar.setText("Adicionar");
-        btnAdicionar.setMaximumSize(new java.awt.Dimension(90, 35));
-        btnAdicionar.setMinimumSize(new java.awt.Dimension(90, 35));
-        btnAdicionar.setPreferredSize(new java.awt.Dimension(95, 35));
-        btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            },
+            new String [] {
+                "Código", "Nome", "Endereço", "Email", "CPF/CNPJ", "Telefone"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tbClientes.setGridColor(new java.awt.Color(255, 255, 255));
+        tbClientes.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tbClientes);
+        if (tbClientes.getColumnModel().getColumnCount() > 0) {
+            tbClientes.getColumnModel().getColumn(0).setResizable(false);
+            tbClientes.getColumnModel().getColumn(0).setPreferredWidth(8);
+            tbClientes.getColumnModel().getColumn(1).setResizable(false);
+            tbClientes.getColumnModel().getColumn(2).setResizable(false);
+            tbClientes.getColumnModel().getColumn(3).setResizable(false);
+            tbClientes.getColumnModel().getColumn(4).setResizable(false);
+            tbClientes.getColumnModel().getColumn(5).setResizable(false);
+        }
+
+        lblProcuraNome.setBackground(new java.awt.Color(255, 255, 255));
+        lblProcuraNome.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
+        lblProcuraNome.setForeground(new java.awt.Color(255, 255, 255));
+        lblProcuraNome.setText("Procurar pelo nome contendo:");
+
+        btnProcurar.setBackground(new java.awt.Color(0, 0, 0));
+        btnProcurar.setForeground(new java.awt.Color(255, 255, 255));
+        btnProcurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iconProcurar.png"))); // NOI18N
+        btnProcurar.setText("Procurar");
+        btnProcurar.setMaximumSize(new java.awt.Dimension(90, 35));
+        btnProcurar.setMinimumSize(new java.awt.Dimension(90, 35));
+        btnProcurar.setPreferredSize(new java.awt.Dimension(95, 35));
+        btnProcurar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdicionarActionPerformed(evt);
+                btnProcurarActionPerformed(evt);
             }
         });
 
-        btnAlterar.setBackground(new java.awt.Color(0, 0, 0));
-        btnAlterar.setForeground(new java.awt.Color(255, 255, 255));
-        btnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/iconAlterar.png"))); // NOI18N
-        btnAlterar.setText("Alterar");
-        btnAlterar.setMaximumSize(new java.awt.Dimension(90, 35));
-        btnAlterar.setMinimumSize(new java.awt.Dimension(90, 35));
-        btnAlterar.setPreferredSize(new java.awt.Dimension(95, 35));
-
-        lblNovaSenha.setBackground(new java.awt.Color(0, 0, 0));
-        lblNovaSenha.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
-        lblNovaSenha.setForeground(new java.awt.Color(255, 255, 255));
-        lblNovaSenha.setText("Nova Senha: ");
-
-        lblConfirmaSenha.setBackground(new java.awt.Color(0, 0, 0));
-        lblConfirmaSenha.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
-        lblConfirmaSenha.setForeground(new java.awt.Color(255, 255, 255));
-        lblConfirmaSenha.setText("Confirma senha");
-
-        javax.swing.GroupLayout panelContaLayout = new javax.swing.GroupLayout(panelConta);
-        panelConta.setLayout(panelContaLayout);
-        panelContaLayout.setHorizontalGroup(
-            panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelContaLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(panelContaLayout.createSequentialGroup()
-                        .addComponent(lblSenhaAtual)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtSenhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelContaLayout.createSequentialGroup()
-                        .addGroup(panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(panelContaLayout.createSequentialGroup()
-                                .addComponent(lblConfirmaSenha)
-                                .addGap(60, 60, 60))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelContaLayout.createSequentialGroup()
-                                .addComponent(lblNovaSenha)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtNovaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtConfirmaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
-                .addGroup(panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAdicionar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAlterar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32))
-        );
-        panelContaLayout.setVerticalGroup(
-            panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelContaLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelTabelaLayout = new javax.swing.GroupLayout(panelTabela);
+        panelTabela.setLayout(panelTabelaLayout);
+        panelTabelaLayout.setHorizontalGroup(
+            panelTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTabelaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSenhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSenhaAtual))
-                .addGroup(panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelContaLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNovaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNovaSenha))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtConfirmaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblConfirmaSenha)))
-                    .addGroup(panelContaLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addGroup(panelTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(panelTabelaLayout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addGroup(panelTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblProcuraNome)
+                            .addGroup(panelTabelaLayout.createSequentialGroup()
+                                .addComponent(txtProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        panelTabelaLayout.setVerticalGroup(
+            panelTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTabelaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblProcuraNome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -363,21 +352,21 @@ public class FRM_Clientes extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(panelConta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(panelCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGap(6, 6, 6)
+                        .addComponent(panelTabela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 9, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelConta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -398,15 +387,9 @@ public class FRM_Clientes extends javax.swing.JFrame {
 
                 if (getClientesCtrl().clienteExiste() == false) {
                     getClientesCtrl().insertCliente();
-                    panelConta.setEnabled(true);
-                    panelConta.setVisible(true);
-                    btnCadastrar.setEnabled(false);
-                    btnCancelar.setEnabled(false);
-                    lblSenhaAtual.setVisible(false);
-                    txtSenhaAtual.setVisible(false);
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(FRM_Clientes.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FRM_Clientes2.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Para cadastrar todos os campos devem estar preenchidas com as informações corretas do cliente!", "Aviso!", JOptionPane.WARNING_MESSAGE);
@@ -418,7 +401,7 @@ public class FRM_Clientes extends javax.swing.JFrame {
         try {
             getClientesCtrl().deleteCliete();
         } catch (SQLException ex) {
-            Logger.getLogger(FRM_Clientes.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FRM_Clientes2.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_btnDelActionPerformed
@@ -437,12 +420,21 @@ public class FRM_Clientes extends javax.swing.JFrame {
             try {
                 getClientesCtrl().updateCliente();
             } catch (SQLException ex) {
-                Logger.getLogger(FRM_Clientes.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FRM_Clientes2.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
 
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcurarActionPerformed
+        /*try {
+            getClientesCtrl().procuraCliente();
+        } catch (SQLException ex) {
+            Logger.getLogger(FRM_Clientes2.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }*/
+    }//GEN-LAST:event_btnProcurarActionPerformed
 
     private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
         // TODO add your handling code here:
@@ -463,14 +455,6 @@ public class FRM_Clientes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCPF_CNPJActionPerformed
 
-    private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
-        try {
-            getContaCrtl().insertConta();
-        } catch (SQLException ex) {
-            Logger.getLogger(FRM_Conta.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnAdicionarActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -489,18 +473,19 @@ public class FRM_Clientes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FRM_Clientes.class
+            java.util.logging.Logger.getLogger(FRM_Clientes2.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FRM_Clientes.class
+            java.util.logging.Logger.getLogger(FRM_Clientes2.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FRM_Clientes.class
+            java.util.logging.Logger.getLogger(FRM_Clientes2.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FRM_Clientes.class
+            java.util.logging.Logger.getLogger(FRM_Clientes2.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
@@ -508,9 +493,9 @@ public class FRM_Clientes extends javax.swing.JFrame {
             public void run() {
                 try {
 
-                    new FRM_Clientes().setVisible(true);
+                    new FRM_Clientes2().setVisible(true);
                 } catch (SQLException ex) {
-                    Logger.getLogger(FRM_Clientes.class
+                    Logger.getLogger(FRM_Clientes2.class
                             .getName()).log(Level.SEVERE, null, ex);
                 }
             }
@@ -518,11 +503,10 @@ public class FRM_Clientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdicionar;
-    private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnDel;
+    private javax.swing.JButton btnProcurar;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel2;
@@ -530,19 +514,17 @@ public class FRM_Clientes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel lblConfirmaSenha;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblHoje;
-    private javax.swing.JLabel lblNovaSenha;
-    private javax.swing.JLabel lblSenhaAtual;
+    private javax.swing.JLabel lblProcuraNome;
     private javax.swing.JPanel panelCliente;
-    private javax.swing.JPanel panelConta;
+    private javax.swing.JPanel panelTabela;
+    private javax.swing.JTable tbClientes;
     private javax.swing.JTextField txtCPF_CNPJ;
-    private javax.swing.JTextField txtConfirmaSenha;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtNovaSenha;
-    private javax.swing.JTextField txtSenhaAtual;
+    private javax.swing.JTextField txtProcurar;
     private javax.swing.JFormattedTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 
@@ -588,20 +570,6 @@ public class FRM_Clientes extends javax.swing.JFrame {
     }
 
     /**
-     * @return the contaCrtl
-     */
-    public ContaControl getContaCrtl() {
-        return contaCrtl;
-    }
-
-    /**
-     * @param contaCrtl the contaCrtl to set
-     */
-    public void setContaCrtl(ContaControl contaCrtl) {
-        this.contaCrtl = contaCrtl;
-    }
-
-    /**
      * @return the loginDao
      */
     public LoginDAO getLoginDao() {
@@ -613,48 +581,6 @@ public class FRM_Clientes extends javax.swing.JFrame {
      */
     public void setLoginDao(LoginDAO loginDao) {
         this.loginDao = loginDao;
-    }
-
-    /**
-     * @return the frmLogin
-     */
-    public FRM_Login getFrmLogin() {
-        return frmLogin;
-    }
-
-    /**
-     * @param frmLogin the frmLogin to set
-     */
-    public void setFrmLogin(FRM_Login frmLogin) {
-        this.frmLogin = frmLogin;
-    }
-
-    /**
-     * @return the btnAdicionar
-     */
-    public javax.swing.JButton getBtnAdicionar() {
-        return btnAdicionar;
-    }
-
-    /**
-     * @param btnAdicionar the btnAdicionar to set
-     */
-    public void setBtnAdicionar(javax.swing.JButton btnAdicionar) {
-        this.btnAdicionar = btnAdicionar;
-    }
-
-    /**
-     * @return the btnAlterar
-     */
-    public javax.swing.JButton getBtnAlterar() {
-        return btnAlterar;
-    }
-
-    /**
-     * @param btnAlterar the btnAlterar to set
-     */
-    public void setBtnAlterar(javax.swing.JButton btnAlterar) {
-        this.btnAlterar = btnAlterar;
     }
 
     /**
@@ -697,6 +623,20 @@ public class FRM_Clientes extends javax.swing.JFrame {
      */
     public void setBtnDel(javax.swing.JButton btnDel) {
         this.btnDel = btnDel;
+    }
+
+    /**
+     * @return the btnProcurar
+     */
+    public javax.swing.JButton getBtnProcurar() {
+        return btnProcurar;
+    }
+
+    /**
+     * @param btnProcurar the btnProcurar to set
+     */
+    public void setBtnProcurar(javax.swing.JButton btnProcurar) {
+        this.btnProcurar = btnProcurar;
     }
 
     /**
@@ -798,17 +738,17 @@ public class FRM_Clientes extends javax.swing.JFrame {
     }
 
     /**
-     * @return the lblConfirmaSenha
+     * @return the jScrollPane1
      */
-    public javax.swing.JLabel getLblConfirmaSenha() {
-        return lblConfirmaSenha;
+    public javax.swing.JScrollPane getjScrollPane1() {
+        return jScrollPane1;
     }
 
     /**
-     * @param lblConfirmaSenha the lblConfirmaSenha to set
+     * @param jScrollPane1 the jScrollPane1 to set
      */
-    public void setLblConfirmaSenha(javax.swing.JLabel lblConfirmaSenha) {
-        this.lblConfirmaSenha = lblConfirmaSenha;
+    public void setjScrollPane1(javax.swing.JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
     }
 
     /**
@@ -826,31 +766,17 @@ public class FRM_Clientes extends javax.swing.JFrame {
     }
 
     /**
-     * @return the lblNovaSenha
+     * @return the lblProcuraNome
      */
-    public javax.swing.JLabel getLblNovaSenha() {
-        return lblNovaSenha;
+    public javax.swing.JLabel getLblProcuraNome() {
+        return lblProcuraNome;
     }
 
     /**
-     * @param lblNovaSenha the lblNovaSenha to set
+     * @param lblProcuraNome the lblProcuraNome to set
      */
-    public void setLblNovaSenha(javax.swing.JLabel lblNovaSenha) {
-        this.lblNovaSenha = lblNovaSenha;
-    }
-
-    /**
-     * @return the lblSenhaAtual
-     */
-    public javax.swing.JLabel getLblSenhaAtual() {
-        return lblSenhaAtual;
-    }
-
-    /**
-     * @param lblSenhaAtual the lblSenhaAtual to set
-     */
-    public void setLblSenhaAtual(javax.swing.JLabel lblSenhaAtual) {
-        this.lblSenhaAtual = lblSenhaAtual;
+    public void setLblProcuraNome(javax.swing.JLabel lblProcuraNome) {
+        this.lblProcuraNome = lblProcuraNome;
     }
 
     /**
@@ -868,17 +794,31 @@ public class FRM_Clientes extends javax.swing.JFrame {
     }
 
     /**
-     * @return the panelConta
+     * @return the panelTabela
      */
-    public javax.swing.JPanel getPanelConta() {
-        return panelConta;
+    public javax.swing.JPanel getPanelTabela() {
+        return panelTabela;
     }
 
     /**
-     * @param panelConta the panelConta to set
+     * @param panelTabela the panelTabela to set
      */
-    public void setPanelConta(javax.swing.JPanel panelConta) {
-        this.panelConta = panelConta;
+    public void setPanelTabela(javax.swing.JPanel panelTabela) {
+        this.panelTabela = panelTabela;
+    }
+
+    /**
+     * @return the tbClientes
+     */
+    public javax.swing.JTable getTbClientes() {
+        return tbClientes;
+    }
+
+    /**
+     * @param tbClientes the tbClientes to set
+     */
+    public void setTbClientes(javax.swing.JTable tbClientes) {
+        this.tbClientes = tbClientes;
     }
 
     /**
@@ -893,20 +833,6 @@ public class FRM_Clientes extends javax.swing.JFrame {
      */
     public void setTxtCPF_CNPJ(javax.swing.JTextField txtCPF_CNPJ) {
         this.txtCPF_CNPJ = txtCPF_CNPJ;
-    }
-
-    /**
-     * @return the txtConfirmaSenha
-     */
-    public javax.swing.JTextField getTxtConfirmaSenha() {
-        return txtConfirmaSenha;
-    }
-
-    /**
-     * @param txtConfirmaSenha the txtConfirmaSenha to set
-     */
-    public void setTxtConfirmaSenha(javax.swing.JTextField txtConfirmaSenha) {
-        this.txtConfirmaSenha = txtConfirmaSenha;
     }
 
     /**
@@ -952,31 +878,17 @@ public class FRM_Clientes extends javax.swing.JFrame {
     }
 
     /**
-     * @return the txtNovaSenha
+     * @return the txtProcurar
      */
-    public javax.swing.JTextField getTxtNovaSenha() {
-        return txtNovaSenha;
+    public javax.swing.JTextField getTxtProcurar() {
+        return txtProcurar;
     }
 
     /**
-     * @param txtNovaSenha the txtNovaSenha to set
+     * @param txtProcurar the txtProcurar to set
      */
-    public void setTxtNovaSenha(javax.swing.JTextField txtNovaSenha) {
-        this.txtNovaSenha = txtNovaSenha;
-    }
-
-    /**
-     * @return the txtSenhaAtual
-     */
-    public javax.swing.JTextField getTxtSenhaAtual() {
-        return txtSenhaAtual;
-    }
-
-    /**
-     * @param txtSenhaAtual the txtSenhaAtual to set
-     */
-    public void setTxtSenhaAtual(javax.swing.JTextField txtSenhaAtual) {
-        this.txtSenhaAtual = txtSenhaAtual;
+    public void setTxtProcurar(javax.swing.JTextField txtProcurar) {
+        this.txtProcurar = txtProcurar;
     }
 
     /**

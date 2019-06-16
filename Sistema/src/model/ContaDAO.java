@@ -38,14 +38,14 @@ public class ContaDAO {
 
     // método para inserir conta
     public long insertConta(Conta conta) throws SQLException {
+        ClientesDAO cliDao = new ClientesDAO();
         // comando para insert de conta
-        String comando = "INSERT INTO CONTA (ID_Cliente, Saldo, Senha) VALUES (?, ?, ?)";
+        String comando = "INSERT INTO CONTA (ID_Cliente, Senha) VALUES (?, ?);";
         // chama o método prepared para preparar nossa string
         stm = conn.prepareStatement(comando, PreparedStatement.RETURN_GENERATED_KEYS);
         // faz o preparo para inserção
-        stm.setInt(1, conta.getCodigoCliente());
-        stm.setDouble(2, conta.getSaldo());
-        stm.setString(3, conta.getSenha());
+        stm.setInt(1, cliDao.codigoCli);
+        stm.setString(2, conta.getSenha());
         // executa o comando
         stm.executeUpdate();
         // chama o método rs para receber a chave gerada
