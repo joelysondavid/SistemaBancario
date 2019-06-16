@@ -7,13 +7,8 @@ import javax.swing.table.DefaultTableModel;
 import model.Conta;
 import model.ContaDAO;
 import model.Extrato;
-<<<<<<< HEAD
-import view.FRM_Clientes;
-import view.FRM_Conta;
-=======
 import model.LoginDAO;
 import view.FRM_Clientes;
->>>>>>> master
 import view.FRM_Login;
 import view.FRM_Saldo;
 
@@ -24,17 +19,9 @@ import view.FRM_Saldo;
 public class ContaControl {
 
     private ContaDAO contaDao = new ContaDAO();
-<<<<<<< HEAD
-    private FRM_Conta frmConta;
-=======
->>>>>>> master
     private FRM_Clientes frmCliente;
     private Conta conta;
     LoginDAO loginDao = new LoginDAO();
-    public ContaControl(FRM_Clientes frmCliente) {
-        this.frmCliente = frmCliente;
-    }
-
     public ContaControl(FRM_Clientes frmCliente) {
         this.frmCliente = frmCliente;
     }
@@ -49,25 +36,16 @@ public class ContaControl {
                 conta = new Conta(loginDao.getIdCliente(), frmCliente.getTxtNovaSenha().getText());
                 contaDao.insertConta(conta);
                 FRM_Login frmLogin = new FRM_Login();
-<<<<<<< HEAD
-            frmLogin.setVisible(true);
-            frmLogin.setEnabled(true);
-            frmCliente.setVisible(false);
-            frmCliente.setEnabled(false);
-=======
                 frmLogin.setVisible(true);
                 frmLogin.setEnabled(true);
                 frmCliente.setVisible(false);
                 frmCliente.setEnabled(false);
->>>>>>> master
             } else {
                 JOptionPane.showMessageDialog(null, "Senhas incompativeis!\nTente novamente!", "Alerta!", JOptionPane.WARNING_MESSAGE);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Os dois campos devem estar preenchidos", "Alerta!", JOptionPane.WARNING_MESSAGE);
         }
-<<<<<<< HEAD
-=======
     }
 
     // metodo para atualizar senha
@@ -94,7 +72,6 @@ public class ContaControl {
         } else {
             JOptionPane.showMessageDialog(null, "Todos os campos devem estar preenchos!", "Alerta!", JOptionPane.WARNING_MESSAGE);
         }
->>>>>>> master
 
     }
 }

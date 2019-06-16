@@ -81,10 +81,6 @@ public class ClientesDAO {
         stm = conn.prepareStatement(comandoExtrato);
         // seta o valor
         stm.setLong(1, codConta);
-<<<<<<< HEAD
-        System.out.println(codConta);
-=======
->>>>>>> master
         // executa o comando
         stm.executeUpdate();
 

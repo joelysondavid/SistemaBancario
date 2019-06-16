@@ -27,10 +27,7 @@ public class LoginDAO {
     private static int idCliente = 0;
     private static long idConta = 0;
     private static String nome = null;
-<<<<<<< HEAD
-=======
     private static String email = null;
->>>>>>> master
 
     public LoginDAO() {
         dao = new DaoConexao();
@@ -89,14 +86,6 @@ public class LoginDAO {
         }
     }
 
-<<<<<<< HEAD
-    public int getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
-=======
     public static int getIdCliente() {
         return idCliente;
     }
@@ -107,7 +96,6 @@ public class LoginDAO {
 
     public static long getIdConta() {
         return idConta;
->>>>>>> master
     }
 
     public static void setIdConta(long idConta) {

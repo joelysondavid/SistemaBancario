@@ -26,18 +26,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-=======
                   <Component id="panelCliente" max="32767" attributes="0"/>
->>>>>>> master
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="panelConta" max="32767" attributes="0"/>
                   </Group>
-<<<<<<< HEAD
-                  <Component id="panelCliente" alignment="0" max="32767" attributes="0"/>
-=======
->>>>>>> master
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -48,15 +41,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="panelCliente" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="panelConta" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-=======
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="panelConta" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
->>>>>>> master
           </Group>
       </Group>
     </DimensionLayout>
@@ -96,19 +83,6 @@
                               <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-<<<<<<< HEAD
-                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="btnCadastrar" pref="118" max="32767" attributes="0"/>
-                                      <Component id="txtTelefone" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="btnUpdate" min="-2" pref="115" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnDel" min="-2" pref="115" max="-2" attributes="0"/>
-=======
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
@@ -123,16 +97,11 @@
                                       </Group>
                                       <Component id="txtTelefone" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
                                   </Group>
->>>>>>> master
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                                          <EmptySpace pref="47" max="32767" attributes="0"/>
-=======
                                           <EmptySpace max="32767" attributes="0"/>
->>>>>>> master
                                           <Component id="txtCPF_CNPJ" min="-2" pref="122" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
@@ -142,24 +111,14 @@
                                       </Group>
                                   </Group>
                               </Group>
-<<<<<<< HEAD
-                              <Component id="txtEndereco" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtEmail" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtNome" alignment="1" max="32767" attributes="0"/>
-=======
                               <Component id="txtNome" max="32767" attributes="0"/>
                               <Component id="txtEndereco" max="32767" attributes="0"/>
                               <Component id="txtEmail" alignment="0" max="32767" attributes="0"/>
->>>>>>> master
                           </Group>
                       </Group>
                       <Component id="lblHoje" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-<<<<<<< HEAD
-                  <EmptySpace max="32767" attributes="0"/>
-=======
                   <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
->>>>>>> master
               </Group>
           </Group>
         </DimensionLayout>
@@ -416,32 +375,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtTelefone">
         </Component>
-        <Component class="javax.swing.JButton" name="btnCancelar">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imgs/iconCancelar.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Cancelar"/>
-            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 35]"/>
-            </Property>
-            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 35]"/>
-            </Property>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[95, 35]"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarActionPerformed"/>
-          </Events>
-        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panelConta">
@@ -469,38 +402,6 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-<<<<<<< HEAD
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="lblSenhaAtual" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="txtSenhaAtual" min="-2" pref="160" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="lblConfirmaSenha" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblNovaSenha" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="txtNovaSenha" min="-2" pref="160" max="-2" attributes="0"/>
-                              <Component id="txtConfirmaSenha" min="-2" pref="160" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <EmptySpace pref="225" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnAdicionar" alignment="1" min="-2" pref="115" max="-2" attributes="0"/>
-                      <Component id="btnAlterar" alignment="1" min="-2" pref="115" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-=======
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblNovaSenha" min="-2" max="-2" attributes="0"/>
@@ -519,17 +420,12 @@
                       <Component id="btnAdicionar" min="-2" pref="115" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
->>>>>>> master
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-              <Group type="102" alignment="0" attributes="0">
-=======
               <Group type="102" attributes="0">
->>>>>>> master
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnAdicionar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -538,31 +434,6 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
-<<<<<<< HEAD
-                      <Component id="btnAdicionar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtSenhaAtual" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblSenhaAtual" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtNovaSenha" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblNovaSenha" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtConfirmaSenha" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblConfirmaSenha" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="btnAlterar" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace pref="29" max="32767" attributes="0"/>
-=======
                       <Component id="lblNovaSenha" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtNovaSenha" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -577,15 +448,12 @@
                       <Component id="txtSenhaAtual" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="20" max="32767" attributes="0"/>
->>>>>>> master
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblSenhaAtual">
-<<<<<<< HEAD
-=======
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
@@ -600,20 +468,10 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnAdicionar">
->>>>>>> master
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-<<<<<<< HEAD
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Consolas" size="14" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Senha atual: "/>
-=======
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
@@ -630,48 +488,8 @@
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[95, 35]"/>
             </Property>
->>>>>>> master
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdicionarActionPerformed"/>
-          </Events>
-        </Component>
-<<<<<<< HEAD
-        <Component class="javax.swing.JTextField" name="txtSenhaAtual">
-        </Component>
-        <Component class="javax.swing.JButton" name="btnAdicionar">
-=======
-        <Component class="javax.swing.JButton" name="btnAlterar">
->>>>>>> master
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-<<<<<<< HEAD
-              <Image iconType="3" name="/imgs/addConta.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Adicionar"/>
-=======
-              <Image iconType="3" name="/imgs/iconAlterar.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Alterar"/>
->>>>>>> master
-            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 35]"/>
-            </Property>
-            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 35]"/>
-            </Property>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[95, 35]"/>
-            </Property>
-          </Properties>
-          <Events>
-<<<<<<< HEAD
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdicionarActionPerformed"/>
           </Events>
         </Component>
@@ -697,12 +515,10 @@
               <Dimension value="[95, 35]"/>
             </Property>
           </Properties>
-        </Component>
-=======
+          <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlterarActionPerformed"/>
           </Events>
         </Component>
->>>>>>> master
         <Component class="javax.swing.JLabel" name="lblNovaSenha">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -717,11 +533,6 @@
             <Property name="text" type="java.lang.String" value="Nova Senha: "/>
           </Properties>
         </Component>
-<<<<<<< HEAD
-        <Component class="javax.swing.JTextField" name="txtNovaSenha">
-        </Component>
-=======
->>>>>>> master
         <Component class="javax.swing.JLabel" name="lblConfirmaSenha">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -736,15 +547,11 @@
             <Property name="text" type="java.lang.String" value="Confirma senha"/>
           </Properties>
         </Component>
-<<<<<<< HEAD
-        <Component class="javax.swing.JTextField" name="txtConfirmaSenha">
-=======
         <Component class="javax.swing.JPasswordField" name="txtNovaSenha">
         </Component>
         <Component class="javax.swing.JPasswordField" name="txtConfirmaSenha">
         </Component>
         <Component class="javax.swing.JPasswordField" name="txtSenhaAtual">
->>>>>>> master
         </Component>
       </SubComponents>
     </Container>

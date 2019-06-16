@@ -20,11 +20,7 @@ public class FRM_Login extends javax.swing.JFrame {
 
     private LoginControl loginCtrl = new LoginControl(FRM_Login.this);
     private LoginDAO loginDao = new LoginDAO();
-<<<<<<< HEAD
-    public static char chave = ' ';
-=======
     private static char chave = ' ';
->>>>>>> master
 
     /**
      * Creates new form FRM_Login
@@ -134,11 +130,7 @@ public class FRM_Login extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1)
-<<<<<<< HEAD
-                    .addComponent(txtConta, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-=======
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
->>>>>>> master
                     .addComponent(jLabel2)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(84, 84, 84))
@@ -153,11 +145,7 @@ public class FRM_Login extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-<<<<<<< HEAD
-                .addComponent(txtConta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-=======
                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
->>>>>>> master
                 .addGap(23, 23, 23)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -193,11 +181,7 @@ public class FRM_Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-<<<<<<< HEAD
-       if ((txtConta.getText().equals("")) || (txtSenha.getText().equals(""))) {
-=======
         if ((getTxtEmail().getText().equals("")) || (getTxtSenha().getText().equals(""))) {
->>>>>>> master
             JOptionPane.showMessageDialog(null, "Favor preencher os dois campos!", "Aviso!", JOptionPane.WARNING_MESSAGE);
         } else {
             try {
@@ -215,21 +199,13 @@ public class FRM_Login extends javax.swing.JFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         try {
             FRM_Clientes frmCliente = new FRM_Clientes();
-<<<<<<< HEAD
-            chave = 'C';
-=======
             setChave('C');
->>>>>>> master
             frmCliente.setVisible(true);
             frmCliente.setEnabled(true);
             frmCliente.getBtnDel().setEnabled(false);
             frmCliente.getBtnUpdate().setEnabled(false);
             frmCliente.getBtnVoltar().setVisible(false);
             frmCliente.getBtnVoltar().setEnabled(false);
-<<<<<<< HEAD
-            frmCliente.getPanelConta().setEnabled(false);
-=======
->>>>>>> master
             frmCliente.getPanelConta().setVisible(false);
             this.setVisible(false);
             this.setVisible(false);
