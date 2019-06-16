@@ -62,13 +62,13 @@ public class FRM_Clientes extends javax.swing.JFrame {
         txtTelefone = new javax.swing.JTextField();
         panelConta = new javax.swing.JPanel();
         lblSenhaAtual = new javax.swing.JLabel();
-        txtSenhaAtual = new javax.swing.JTextField();
         btnAdicionar = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
         lblNovaSenha = new javax.swing.JLabel();
-        txtNovaSenha = new javax.swing.JTextField();
         lblConfirmaSenha = new javax.swing.JLabel();
-        txtConfirmaSenha = new javax.swing.JTextField();
+        txtNovaSenha = new javax.swing.JPasswordField();
+        txtConfirmaSenha = new javax.swing.JPasswordField();
+        txtSenhaAtual = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Clientes");
@@ -308,17 +308,15 @@ public class FRM_Clientes extends javax.swing.JFrame {
             panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelContaLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelContaLayout.createSequentialGroup()
-                        .addGroup(panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNovaSenha)
-                            .addComponent(lblConfirmaSenha))
-                        .addGap(36, 36, 36)
-                        .addGroup(panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNovaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtConfirmaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSenhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lblSenhaAtual, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGroup(panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNovaSenha)
+                    .addComponent(lblConfirmaSenha)
+                    .addComponent(lblSenhaAtual))
+                .addGap(36, 36, 36)
+                .addGroup(panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtNovaSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                    .addComponent(txtConfirmaSenha)
+                    .addComponent(txtSenhaAtual))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -335,17 +333,17 @@ public class FRM_Clientes extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
             .addGroup(panelContaLayout.createSequentialGroup()
                 .addGroup(panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNovaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNovaSenha))
+                    .addComponent(lblNovaSenha)
+                    .addComponent(txtNovaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtConfirmaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblConfirmaSenha))
+                    .addComponent(lblConfirmaSenha)
+                    .addComponent(txtConfirmaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSenhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSenhaAtual))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(lblSenhaAtual)
+                    .addComponent(txtSenhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -387,13 +385,13 @@ public class FRM_Clientes extends javax.swing.JFrame {
             try {
                 if (getClientesCtrl().clienteExiste() == false) {
                     if (getClientesCtrl().insertCliente()) {
-                        panelConta.setEnabled(true);
-                        panelConta.setVisible(true);
-                        btnAlterar.setVisible(false);
-                        btnCadastrar.setEnabled(false);
-                        btnCancelar.setEnabled(false);
-                        lblSenhaAtual.setVisible(false);
-                        txtSenhaAtual.setVisible(false);
+                        getPanelConta().setVisible(true);
+                        getPanelConta().setEnabled(true);
+                        getBtnAlterar().setVisible(false);
+                        getBtnCadastrar().setEnabled(false);
+                        getBtnCancelar().setEnabled(false);
+                        getLblSenhaAtual().setVisible(false);
+                        getTxtSenhaAtual().setVisible(false);
                     }
                 }
             } catch (SQLException ex) {
@@ -457,13 +455,13 @@ public class FRM_Clientes extends javax.swing.JFrame {
         try {
             getContaCrtl().insertConta();
         } catch (SQLException ex) {
-            Logger.getLogger(FRM_Conta.class.getName()).log(Level.SEVERE, null, ex);
+
         }
     }//GEN-LAST:event_btnAdicionarActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         try {
-            contaCrtl.updateSenha();
+            getContaCrtl().updateSenha();
         } catch (SQLException ex) {
             Logger.getLogger(FRM_Clientes.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -535,12 +533,12 @@ public class FRM_Clientes extends javax.swing.JFrame {
     private javax.swing.JPanel panelCliente;
     private javax.swing.JPanel panelConta;
     private javax.swing.JTextField txtCPF_CNPJ;
-    private javax.swing.JTextField txtConfirmaSenha;
+    private javax.swing.JPasswordField txtConfirmaSenha;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtNovaSenha;
-    private javax.swing.JTextField txtSenhaAtual;
+    private javax.swing.JPasswordField txtNovaSenha;
+    private javax.swing.JPasswordField txtSenhaAtual;
     private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 
@@ -896,14 +894,14 @@ public class FRM_Clientes extends javax.swing.JFrame {
     /**
      * @return the txtConfirmaSenha
      */
-    public javax.swing.JTextField getTxtConfirmaSenha() {
+    public javax.swing.JPasswordField getTxtConfirmaSenha() {
         return txtConfirmaSenha;
     }
 
     /**
      * @param txtConfirmaSenha the txtConfirmaSenha to set
      */
-    public void setTxtConfirmaSenha(javax.swing.JTextField txtConfirmaSenha) {
+    public void setTxtConfirmaSenha(javax.swing.JPasswordField txtConfirmaSenha) {
         this.txtConfirmaSenha = txtConfirmaSenha;
     }
 
@@ -952,28 +950,28 @@ public class FRM_Clientes extends javax.swing.JFrame {
     /**
      * @return the txtNovaSenha
      */
-    public javax.swing.JTextField getTxtNovaSenha() {
+    public javax.swing.JPasswordField getTxtNovaSenha() {
         return txtNovaSenha;
     }
 
     /**
      * @param txtNovaSenha the txtNovaSenha to set
      */
-    public void setTxtNovaSenha(javax.swing.JTextField txtNovaSenha) {
+    public void setTxtNovaSenha(javax.swing.JPasswordField txtNovaSenha) {
         this.txtNovaSenha = txtNovaSenha;
     }
 
     /**
      * @return the txtSenhaAtual
      */
-    public javax.swing.JTextField getTxtSenhaAtual() {
+    public javax.swing.JPasswordField getTxtSenhaAtual() {
         return txtSenhaAtual;
     }
 
     /**
      * @param txtSenhaAtual the txtSenhaAtual to set
      */
-    public void setTxtSenhaAtual(javax.swing.JTextField txtSenhaAtual) {
+    public void setTxtSenhaAtual(javax.swing.JPasswordField txtSenhaAtual) {
         this.txtSenhaAtual = txtSenhaAtual;
     }
 
@@ -987,7 +985,7 @@ public class FRM_Clientes extends javax.swing.JFrame {
     /**
      * @param txtTelefone the txtTelefone to set
      */
-    public void setTxtTelefone(javax.swing.JFormattedTextField txtTelefone) {
+    public void setTxtTelefone(javax.swing.JTextField txtTelefone) {
         this.txtTelefone = txtTelefone;
     }
 

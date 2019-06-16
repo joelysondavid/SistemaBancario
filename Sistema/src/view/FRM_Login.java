@@ -181,7 +181,7 @@ public class FRM_Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-       if ((getTxtEmail().getText().equals("")) || (getTxtSenha().getText().equals(""))) {
+        if ((getTxtEmail().getText().equals("")) || (getTxtSenha().getText().equals(""))) {
             JOptionPane.showMessageDialog(null, "Favor preencher os dois campos!", "Aviso!", JOptionPane.WARNING_MESSAGE);
         } else {
             try {
@@ -206,7 +206,6 @@ public class FRM_Login extends javax.swing.JFrame {
             frmCliente.getBtnUpdate().setEnabled(false);
             frmCliente.getBtnVoltar().setVisible(false);
             frmCliente.getBtnVoltar().setEnabled(false);
-            frmCliente.getPanelConta().setEnabled(false);
             frmCliente.getPanelConta().setVisible(false);
             this.setVisible(false);
             this.setVisible(false);

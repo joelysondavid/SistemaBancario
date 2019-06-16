@@ -9,7 +9,6 @@ import model.ContaDAO;
 import model.Extrato;
 import model.LoginDAO;
 import view.FRM_Clientes;
-import view.FRM_Conta;
 import view.FRM_Login;
 import view.FRM_Saldo;
 
@@ -20,18 +19,9 @@ import view.FRM_Saldo;
 public class ContaControl {
 
     private ContaDAO contaDao = new ContaDAO();
-    private FRM_Conta frmConta;
     private FRM_Clientes frmCliente;
     private Conta conta;
     LoginDAO loginDao = new LoginDAO();
-    private FRM_Saldo frmSaldo;
-
-    // no construtor chamamos o formulario que vamos trabalhar
-    public ContaControl(FRM_Conta frmConta) {
-        this.frmConta = frmConta;
-        // this.frmSaldo = frmSaldo;
-    }
-
     public ContaControl(FRM_Clientes frmCliente) {
         this.frmCliente = frmCliente;
     }

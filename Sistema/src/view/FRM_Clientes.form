@@ -403,20 +403,16 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblNovaSenha" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblConfirmaSenha" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtNovaSenha" min="-2" pref="160" max="-2" attributes="0"/>
-                              <Component id="txtConfirmaSenha" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                              <Component id="txtSenhaAtual" min="-2" pref="160" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblNovaSenha" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblConfirmaSenha" min="-2" max="-2" attributes="0"/>
                       <Component id="lblSenhaAtual" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="txtNovaSenha" pref="190" max="32767" attributes="0"/>
+                      <Component id="txtConfirmaSenha" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtSenhaAtual" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -438,20 +434,20 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtNovaSenha" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblNovaSenha" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNovaSenha" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtConfirmaSenha" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblConfirmaSenha" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtConfirmaSenha" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtSenhaAtual" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblSenhaAtual" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtSenhaAtual" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="20" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -470,8 +466,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Senha atual: "/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtSenhaAtual">
         </Component>
         <Component class="javax.swing.JButton" name="btnAdicionar">
           <Properties>
@@ -539,8 +533,6 @@
             <Property name="text" type="java.lang.String" value="Nova Senha: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNovaSenha">
-        </Component>
         <Component class="javax.swing.JLabel" name="lblConfirmaSenha">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -555,7 +547,11 @@
             <Property name="text" type="java.lang.String" value="Confirma senha"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtConfirmaSenha">
+        <Component class="javax.swing.JPasswordField" name="txtNovaSenha">
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="txtConfirmaSenha">
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="txtSenhaAtual">
         </Component>
       </SubComponents>
     </Container>
