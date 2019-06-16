@@ -22,11 +22,19 @@ public class LoginControl {
 
     public boolean validaLogin() throws SQLException {
         FRM_Home frmHome = new FRM_Home();
+<<<<<<< HEAD
         if (loginDao.validaLogin(Long.parseLong(frmLogin.getTxtConta().getText()), frmLogin.getTxtSenha().getText()) == true) {
             frmHome = new FRM_Home();
             frmHome.setVisible(true);
             frmHome.setEnabled(true);
             frmLogin.chave = 'E';
+=======
+        if (loginDao.validaLogin(frmLogin.getTxtEmail().getText(), frmLogin.getTxtSenha().getText()) == true) {
+            frmHome = new FRM_Home();
+            frmHome.setVisible(true);
+            frmHome.setEnabled(true);
+            frmLogin.setChave('E');
+>>>>>>> master
             frmLogin.setVisible(false);
             frmLogin.setEnabled(false);
             return true;

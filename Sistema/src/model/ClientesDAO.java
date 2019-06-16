@@ -81,7 +81,10 @@ public class ClientesDAO {
         stm = conn.prepareStatement(comandoExtrato);
         // seta o valor
         stm.setLong(1, codConta);
+<<<<<<< HEAD
         System.out.println(codConta);
+=======
+>>>>>>> master
         // executa o comando
         stm.executeUpdate();
 
@@ -175,6 +178,23 @@ public class ClientesDAO {
         stm = conn.prepareStatement(comando);
         // seta o valor que iremos passar para nosso campo "?"
         stm.setLong(1, CPF_CNPJ);
+        // execura o comando
+        rs = stm.executeQuery();
+        // chama rs para receber os dados do banco
+        if (rs.next()) { // caso encontre um clietne com o CPF_CNPJ informado retorna true
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public boolean verificaEmail(String email) throws SQLException {
+        // String com o comenado select para buscar cnpj do cliente
+        String comando = "SELECT * FROM CLIENTES WHERE EMAIL = ?;";
+        // prepara nosso comando sql
+        stm = conn.prepareStatement(comando);
+        // seta o valor que iremos passar para nosso campo "?"
+        stm.setString(1, email);
         // execura o comando
         rs = stm.executeQuery();
         // chama rs para receber os dados do banco

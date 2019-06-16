@@ -75,7 +75,11 @@
                           <Component id="btnSair" min="-2" pref="115" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <Component id="txtConta" min="-2" pref="236" max="-2" attributes="0"/>
+=======
+                      <Component id="txtEmail" min="-2" pref="236" max="-2" attributes="0"/>
+>>>>>>> master
                       <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="txtSenha" alignment="0" min="-2" pref="236" max="-2" attributes="0"/>
                   </Group>
@@ -94,7 +98,11 @@
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
                   <Component id="txtConta" min="-2" max="-2" attributes="0"/>
+=======
+                  <Component id="txtEmail" min="-2" max="-2" attributes="0"/>
+>>>>>>> master
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -140,7 +148,10 @@
             <Property name="text" type="java.lang.String" value="Senha:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtConta">
+        <Component class="javax.swing.JTextField" name="txtEmail">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmailActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnEntrar">
           <Properties>

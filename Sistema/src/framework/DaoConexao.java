@@ -5,7 +5,6 @@
  */
 package framework;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -42,8 +41,8 @@ public class DaoConexao {
         }
         return conn;
     }
-
     // método para fechar as conexões
+
     public void closeConnection(Connection conn, Statement stmt, ResultSet rs) throws SQLException {
 
         if (stmt != null) {

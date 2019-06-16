@@ -35,7 +35,24 @@ public class ContaDAO {
             JOptionPane.showMessageDialog(null, "Erro ao tentar conexão com banco de dados: " + ex, "Erro de Conexão!", JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    // método porcuta conta
+    public boolean validaConta (long conta, String senha) throws SQLException {
+        // comando
+        String comando = "SELECT * FROM CONTA WHERE ID_CONTA = ? AND SENHA = ?;";
+        // prepara
+        stm = conn.prepareStatement(comando);
+        // seta
+        stm.setLong(1, conta);
+        stm.setString(2, senha);
+        // executa
+        rs = stm.executeQuery();
+        if(rs.next()) {
+           return true;
+           
+        }
+        return false;
+    }
+    
     // método para inserir conta
     public long insertConta(Conta conta) throws SQLException {
         ClientesDAO cliDao = new ClientesDAO();
@@ -58,7 +75,21 @@ public class ContaDAO {
         // retorna o numero da conta
         return conta.getNumConta();
     }
-
+    
+    // método para atualizar a senha da conta
+    public void updateConta(String senha, long conta) throws SQLException {
+        // comando
+        String comando = "UPDATE CONTA SET SENHA = ? WHERE ID_Conta = ?;";
+        // prepara o comando
+        stm = conn.prepareStatement(comando);
+        // seta o valor
+        stm.setString(1, senha);
+        stm.setLong(2, conta);
+        // executa o comando
+        stm.executeUpdate();
+        JOptionPane.showMessageDialog(null, "Senha atualizada com sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
     // método que retorna o saldo da conta
     public double saldoConta(long idConta) throws SQLException {
         // String com comando para executar
