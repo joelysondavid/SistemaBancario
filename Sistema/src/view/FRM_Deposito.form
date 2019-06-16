@@ -50,20 +50,12 @@
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-<<<<<<< HEAD
-            <TitledBorder justification="2" title="Deposito">
-=======
             <TitledBorder justification="2" title="Dep&#xf3;sito">
->>>>>>> RafaelRocha
               <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder thickness="2"/>
               </Border>
               <Font PropertyName="font" name="Consolas" size="24" style="1"/>
-<<<<<<< HEAD
-              <Color PropertyName="color" blue="0" green="0" red="0" type="rgb"/>
-=======
               <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
->>>>>>> RafaelRocha
             </TitledBorder>
           </Border>
         </Property>
@@ -73,43 +65,6 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-<<<<<<< HEAD
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
-                                  <Component id="btnVoltar" min="-2" pref="90" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
-                                  <Component id="lblCliente" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="btnConfirmar" alignment="1" max="32767" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Component id="txtValor" min="-2" pref="172" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="txtSaldo" min="-2" pref="172" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-=======
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -117,7 +72,7 @@
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnVoltar" min="-2" pref="115" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="6" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="txtValor" alignment="1" min="-2" pref="172" max="-2" attributes="0"/>
                               <Component id="btnConfirmar" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
@@ -132,7 +87,6 @@
                           <Component id="lblCliente" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
->>>>>>> RafaelRocha
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -141,40 +95,24 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-                  <Component id="lblCliente" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-=======
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Component id="lblCliente" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
->>>>>>> RafaelRocha
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtSaldo" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-<<<<<<< HEAD
-                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-=======
                   <EmptySpace type="separate" max="-2" attributes="0"/>
->>>>>>> RafaelRocha
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtValor" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                  <Component id="btnConfirmar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="82" max="32767" attributes="0"/>
-                  <Component id="btnVoltar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-=======
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnConfirmar" alignment="3" max="32767" attributes="0"/>
                       <Component id="btnVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="35" max="32767" attributes="0"/>
->>>>>>> RafaelRocha
               </Group>
           </Group>
         </DimensionLayout>
@@ -183,11 +121,7 @@
         <Component class="javax.swing.JLabel" name="lblCliente">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-<<<<<<< HEAD
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-=======
               <Color blue="0" green="0" red="0" type="rgb"/>
->>>>>>> RafaelRocha
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Consolas" size="14" style="1"/>
@@ -209,12 +143,9 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-<<<<<<< HEAD
-=======
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imgs/iconVoltar.png"/>
             </Property>
->>>>>>> RafaelRocha
             <Property name="text" type="java.lang.String" value="Voltar"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[90, 35]"/>
@@ -223,11 +154,7 @@
               <Dimension value="[90, 35]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-<<<<<<< HEAD
-              <Dimension value="[90, 35]"/>
-=======
               <Dimension value="[95, 35]"/>
->>>>>>> RafaelRocha
             </Property>
           </Properties>
           <Events>
@@ -280,12 +207,9 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-<<<<<<< HEAD
-=======
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imgs/iconDeposito.png"/>
             </Property>
->>>>>>> RafaelRocha
             <Property name="text" type="java.lang.String" value="Confirmar Deposito"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[90, 35]"/>
@@ -294,11 +218,7 @@
               <Dimension value="[90, 35]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-<<<<<<< HEAD
-              <Dimension value="[90, 35]"/>
-=======
               <Dimension value="[95, 35]"/>
->>>>>>> RafaelRocha
             </Property>
           </Properties>
           <Events>

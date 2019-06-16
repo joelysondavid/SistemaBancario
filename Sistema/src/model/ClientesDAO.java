@@ -27,6 +27,7 @@ public class ClientesDAO {
     private PreparedStatement stm;
     private ResultSet rs;
     private DaoConexao dao;
+    static int codigoCli = 0;
 
     // construtor com a conexão vindo do framework/DaoConexao
     public ClientesDAO() {
@@ -42,60 +43,80 @@ public class ClientesDAO {
 
     // método de novo cliente
     public int insertCliente(Clientes cliente) throws SQLException {
-           Date data = new Date();
-           SimpleDateFormat formatar = new SimpleDateFormat("yyyy/MM/dd");
-           String hoje = formatar.format(data);
-        
-            String comando = "INSERT INTO Clientes (NomeCliente, EnderecoCliente, Email, CPF_CNPJ, Telefone, ClienteDesde) VALUES (?, ?, ?, ?, ?, ?)";
+        Date data = new Date();
+        SimpleDateFormat formatar = new SimpleDateFormat("yyyy/MM/dd");
+        String hoje = formatar.format(data);
 
-            // stm recebe a preparação da query com os dados passados com um metodo para retornar a chave gerada
-            stm = conn.prepareStatement(comando, PreparedStatement.RETURN_GENERATED_KEYS);
-            stm.setString(1, cliente.getNomeCliente());
-            stm.setString(2, cliente.getEnderecoCliente());
-            stm.setString(3, cliente.getEmail());
-            stm.setLong(4, cliente.getDocumento());
-            stm.setString(5, cliente.getTelefone());
-            stm.setString(6, hoje);
-            // executa comando sql
-            stm.executeUpdate();
+        String comando = "INSERT INTO Clientes (NomeCliente, EnderecoCliente, Email, CPF_CNPJ, Telefone, ClienteDesde) VALUES (?, ?, ?, ?, ?, ?)";
 
-            // usa rs para trabalhar com recebimento de dados
-            rs = stm.getGeneratedKeys();
-            // atualiza codigo com auto_increment do objeto instanciado
-            if (rs.next()) {
-                cliente.setCodigoCliente(rs.getInt(1));
-            }
-            JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!", "Cadastrado", JOptionPane.INFORMATION_MESSAGE);
-            // e por fim retorna o codigo do novo cliente
-            return cliente.getCodigoCliente();
-       
+        // stm recebe a preparação da query com os dados passados com um metodo para retornar a chave gerada
+        stm = conn.prepareStatement(comando, PreparedStatement.RETURN_GENERATED_KEYS);
+        stm.setString(1, cliente.getNomeCliente());
+        stm.setString(2, cliente.getEnderecoCliente());
+        stm.setString(3, cliente.getEmail());
+        stm.setLong(4, cliente.getDocumento());
+        stm.setString(5, cliente.getTelefone());
+        stm.setString(6, hoje);
+        // executa comando sql
+        stm.executeUpdate();
+
+        // usa rs para trabalhar com recebimento de dados
+        rs = stm.getGeneratedKeys();
+        // atualiza codigo com auto_increment do objeto instanciado
+        if (rs.next()) {
+            cliente.setCodigoCliente(rs.getInt(1));
+            codigoCli = rs.getInt(1);
+        }
+        JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!", "Cadastrado", JOptionPane.INFORMATION_MESSAGE);
+        // e por fim retorna o codigo do novo cliente
+        return cliente.getCodigoCliente();
+
     }
 
     // método delete cliente
-    public void deleteCliente(int codigo) throws SQLException {
+    public void deleteCliente(int codCliente, long codConta) throws SQLException {
+        // String deleta extrato
+        String comandoExtrato = "DELETE FROM EXTRATO WHERE ID_CONTA = ?;";
+        // prepara a string com o comando
+        stm = conn.prepareStatement(comandoExtrato);
+        // seta o valor
+        stm.setLong(1, codConta);
+        System.out.println(codConta);
+        // executa o comando
+        stm.executeUpdate();
+
+        // String delete conta
+        String comandoConta = "DELETE FROM CONTA WHERE ID_CLIENTE = ?;";
+        // prepara a string com o comando
+        stm = conn.prepareStatement(comandoConta);
+        // seta o valor
+        stm.setInt(1, codCliente);
+        // executa o comando
+        stm.executeUpdate();
         // comando delete cliente
-        String comando = "DELETE FROM Clientes WHERE ID_Cliente = ?";
+        String comandoCliente = "DELETE FROM Clientes WHERE ID_Cliente = ?";
         // preparação do comando delete
-        stm = conn.prepareStatement(comando);
-        stm.setInt(1, codigo);
+        stm = conn.prepareStatement(comandoCliente);
+        stm.setInt(1, codCliente);
         stm.executeUpdate();
         JOptionPane.showMessageDialog(null, "Cliente apagado com sucesso!", "Deletado", JOptionPane.INFORMATION_MESSAGE);
     }
 
     // método para alterar cliente
     public void updateCliente(Clientes cliente, int codigo) throws SQLException {
+        LoginDAO loginDao = new LoginDAO();
         // comando para alterar cliente
-        String comando = "UPDATE Clientes SET NomeCliente=?, EnderecoCliente=?, Email=?, CPF_CNPJ=?, Telefone = ? WHERE ID_Cliente = ?;";
+        String comando = "UPDATE Clientes SET NomeCliente=?, EnderecoCliente=?, Email=?, Telefone = ? WHERE ID_Cliente = ?;";
         // prepara o comando para os dados
         stm = conn.prepareStatement(comando);
         // seta os dados que serão inseridos no banco
         stm.setString(1, cliente.getNomeCliente());
         stm.setString(2, cliente.getEnderecoCliente());
         stm.setString(3, cliente.getEmail());
-        stm.setLong(4, cliente.getDocumento());
-        stm.setString(5, cliente.getTelefone());
-        stm.setInt(6, codigo);
+        stm.setString(4, cliente.getTelefone());
+        stm.setLong(5, codigo);
         // executa o comando UPDATE
+        loginDao.setNome(cliente.getNomeCliente());
         stm.executeUpdate();
     }
 
@@ -121,15 +142,15 @@ public class ClientesDAO {
     }
 
     // sobrescrever método procurar cliente
-    public Clientes procurarCliente(int CPF_CNPJ) throws SQLException {
+    public Clientes procurarCliente(int codigo) throws SQLException {
         // cria objeto cliente
         Clientes cliente;
         // String com o comenado select para buscar cnpj do cliente
-        String comando = "SELECT * FROM CLIENTES WHERE CPF_CNPJ = ?;";
+        String comando = "SELECT * FROM CLIENTES WHERE ID_CLIENTE = ?;";
         // prepara nosso comando sql
         stm = conn.prepareStatement(comando);
         // seta o valor que iremos passar para nosso campo "?"
-        stm.setInt(1, CPF_CNPJ);
+        stm.setInt(1, codigo);
         // execura o comando
         rs = stm.executeQuery();
         // chama rs para receber os dados do banco
@@ -142,6 +163,7 @@ public class ClientesDAO {
         }
         return cliente;
     }
+
     // procurar cliente retirba boolean
     // sobrescrever método procurar cliente
     public boolean verificaCliente(long CPF_CNPJ) throws SQLException {

@@ -16,9 +16,8 @@ public class Conta {
     }
 
     // construtor com parametros
-    public Conta(int codigoCliente, double saldo, String senha) {
+    public Conta(int codigoCliente, String senha) {
         this.codigoCliente = codigoCliente;
-        this.saldo = saldo;
         this.senha = senha;
     }
 

@@ -24,9 +24,10 @@ public class LoginDAO {
     private ResultSet rs;
     private DaoConexao dao;
     // variaveis
-    private static long idCliente;
-    private static long idConta;
-    private static String nome;
+    private static int idCliente = 0;
+    private static long idConta = 0;
+    private static String nome = null;
+    private static String email = null;
 
     public LoginDAO() {
         dao = new DaoConexao();
@@ -57,6 +58,12 @@ public class LoginDAO {
             return false;
         }
     }
+    public long validaEmail(String email) throws SQLException {
+        String comando = "SELECT * FROM CLIENTES WHERE EMAIL = ?";
+        stm = conn.prepareStatement(comando);
+        stm.setString(1, email);
+        rs = stm.executeQuery();
+    }
 
     // método para retornar dados do cliente dono do login
     public void clienteValido(long conta) throws SQLException {
@@ -65,32 +72,43 @@ public class LoginDAO {
         stm.setLong(1, conta);
         rs = stm.executeQuery();
         if (rs.next()) {
-            setIdCliente(rs.getLong("ID_Cliente"));
+            setIdCliente(rs.getInt("ID_Cliente"));
             setNome(rs.getString("NomeCliente"));
+            setEmail(rs.getString("Email"));
         }
     }
 
-    public long getIdCliente() {
+    public static int getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(long idCliente) {
-        this.idCliente = idCliente;
+    public static void setIdCliente(int idCliente) {
+        LoginDAO.idCliente = idCliente;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    
-     public long getIdConta() {
+    public static long getIdConta() {
         return idConta;
     }
 
-    public void setIdConta(long idConta) {
-        this.idConta = idConta;
+    public static void setIdConta(long idConta) {
+        LoginDAO.idConta = idConta;
     }
+
+    public static String getNome() {
+        return nome;
+    }
+
+    public static void setNome(String nome) {
+        LoginDAO.nome = nome;
+    }
+
+    public static String getEmail() {
+        return email;
+    }
+
+    public static void setEmail(String email) {
+        LoginDAO.email = email;
+    }
+
+    
 }

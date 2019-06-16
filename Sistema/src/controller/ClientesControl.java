@@ -12,7 +12,9 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Clientes;
 import model.ClientesDAO;
+import model.LoginDAO;
 import view.FRM_Clientes;
+import view.FRM_Login;
 
 /**
  *
@@ -23,6 +25,7 @@ public class ClientesControl {
     // objetos pra trabalhar com a view e a nossa modelo
     private ClientesDAO clienteDAO = new ClientesDAO();
     private FRM_Clientes frmClientes;
+    private LoginDAO loginDao = new LoginDAO();
     private Clientes cliente;
 
     // define o formulario que vamos trabalho através do parametro informado
@@ -41,41 +44,39 @@ public class ClientesControl {
             // chama o metodo para inserir cliente
             clienteDAO.insertCliente(cliente);
             // chama o método mostar clientes para atualizar a tabela
-            mostrarClientes(); // recarrega a tabela
+            // mostrarClientes(); // recarrega a tabela
             frmClientes.limparCampos(); // chama o método para limpar os campos
-        } else {
+       } else {
             JOptionPane.showMessageDialog(null, "CPF inválido, tente novamente!", "Aviso!", JOptionPane.WARNING_MESSAGE);
         }
     }
 
     // deletar cliente
     public void deleteCliete() throws SQLException {
-        // linha selecionada        
-        int linha = frmClientes.getTbClientes().getSelectedRow();
-        // pega o codigo dessa linha
-        int codigo = (int) frmClientes.getTbClientes().getValueAt(linha, 0);
+        // codigo do Cliente
+        int codigo = loginDao.getIdCliente();
+        long codigoConta = loginDao.getIdConta();
         // pega o nome do cliente
-        String nome = (String) frmClientes.getTbClientes().getValueAt(linha, 1);
         // validação para saber se tem certeza que deseja apagar        
-        int confirma = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja apagar o cliente: " + nome + " ?", "Confirma apagar o cliente?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int confirma = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja apagar?", "Confirma apagar o cliente?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         // se for confirmado chama o metodo para deletar o usuario do banco e atualiza a tabela
         if (confirma == 0) {
             // chamar o método apagar cliente
-            clienteDAO.deleteCliente(codigo);
+            clienteDAO.deleteCliente(codigo, codigoConta);
             // chama o método mostar clientes para atualizar a tabela
-            mostrarClientes();
+            FRM_Login frmLogin = new FRM_Login();
+            frmLogin.setVisible(true);
+            frmLogin.setEnabled(true);
+            frmClientes.setVisible(false);
+            frmClientes.setEnabled(false);
         }
     }
 
     // alterar cliente
     public void updateCliente() throws SQLException {
-        // linha selecionada
-        int linha = frmClientes.getTbClientes().getSelectedRow();
         // pega o código
-        int codigo = (int) frmClientes.getTbClientes().getValueAt(linha, 0);
-        // nome do cliente
-        String nome = (String) frmClientes.getTbClientes().getValueAt(linha, 1);
-        int confirma = JOptionPane.showConfirmDialog(null, "Confirma a alteração do cliente: " + nome + " ?", "Confirmação", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int codigo = loginDao.getIdCliente();
+        int confirma = JOptionPane.showConfirmDialog(null, "Confirma a alteração?", "Confirmação", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (confirma == 0) {
             // passa os novos dados ao cliente
             cliente = new Clientes(frmClientes.getTxtNome().getText(), frmClientes.getTxtEndereco().getText(), frmClientes.getTxtEmail().getText(),
@@ -88,7 +89,7 @@ public class ClientesControl {
     }
 
     // procura Cliente nome
-    public ArrayList<Clientes> procuraCliente() throws SQLException {
+    /* public ArrayList<Clientes> procuraCliente() throws SQLException {
         // objeto clientes obtendo os clientes da base
         ArrayList<Clientes> clientes = clienteDAO.procurarCliente(frmClientes.getTxtProcurar().getText());
         // string recebendo o nome do cliente 
@@ -103,7 +104,7 @@ public class ClientesControl {
         }
         return clientes;
     } // falta criar o segundo procurar clietne com cpfff
-
+*/
     public boolean clienteExiste() throws SQLException {
         // cria uma 'flag' para verificar se o cliente existe
         boolean verifica = clienteDAO.verificaCliente(Long.parseLong(frmClientes.getTxtCPF_CNPJ().getText()));
@@ -117,7 +118,7 @@ public class ClientesControl {
     }
 
     // mostrar todo os clientes
-    public ArrayList<Clientes> mostrarClientes() throws SQLException {
+   /* public ArrayList<Clientes> mostrarClientes() throws SQLException {
         // objeto clientes obtendo os clientes da base
         ArrayList<Clientes> clientes = clienteDAO.mostraClientes();
         // cria um objeto DefaultTableModel que recebe como valor nossa Jtable
@@ -129,6 +130,27 @@ public class ClientesControl {
 
         }
         return clientes;
+    }*/
+
+    // método seta cliente na tela
+    public void mostraDados() throws SQLException {
+        FRM_Login frmLogin = new FRM_Login();
+
+        if (frmLogin.chave == 'E') {
+            Clientes cliente = clienteDAO.procurarCliente(loginDao.getIdCliente());
+            frmClientes.getTxtNome().setText(cliente.getNomeCliente());
+            frmClientes.getTxtEmail().setText(cliente.getEmail());
+            frmClientes.getTxtCPF_CNPJ().setText("" + cliente.getDocumento());
+            frmClientes.getTxtTelefone().setText("" + cliente.getTelefone());
+            frmClientes.getTxtEndereco().setText(cliente.getEnderecoCliente());
+        } else if (frmLogin.chave == 'C') {
+            frmClientes.getTxtNome().setText("");
+            frmClientes.getTxtEmail().setText("");
+            frmClientes.getTxtCPF_CNPJ().setText("");
+            frmClientes.getTxtTelefone().setText("");
+            frmClientes.getTxtEndereco().setText("");
+        }
+
     }
 
     // método para validar CPF
