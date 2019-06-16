@@ -5,7 +5,6 @@
  */
 package view;
 
-import controller.ApenasNumeros;
 import controller.LoginControl;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -21,14 +20,13 @@ public class FRM_Login extends javax.swing.JFrame {
 
     private LoginControl loginCtrl = new LoginControl(FRM_Login.this);
     private LoginDAO loginDao = new LoginDAO();
-    public static char chave = ' ';
+    private static char chave = ' ';
 
     /**
      * Creates new form FRM_Login
      */
     public FRM_Login() {
         initComponents();
-        txtConta.setDocument(new ApenasNumeros());
     }
 
     /**
@@ -43,7 +41,7 @@ public class FRM_Login extends javax.swing.JFrame {
         panelLogin = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtConta = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         btnEntrar = new javax.swing.JButton();
         txtSenha = new javax.swing.JPasswordField();
         btnCadastrar = new javax.swing.JButton();
@@ -65,6 +63,12 @@ public class FRM_Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Senha:");
+
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
 
         btnEntrar.setBackground(new java.awt.Color(0, 0, 0));
         btnEntrar.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
@@ -126,7 +130,7 @@ public class FRM_Login extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1)
-                    .addComponent(txtConta, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(84, 84, 84))
@@ -141,7 +145,7 @@ public class FRM_Login extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtConta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -177,7 +181,7 @@ public class FRM_Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-       if ((txtConta.getText().equals("")) || (txtSenha.getText().equals(""))) {
+       if ((getTxtEmail().getText().equals("")) || (getTxtSenha().getText().equals(""))) {
             JOptionPane.showMessageDialog(null, "Favor preencher os dois campos!", "Aviso!", JOptionPane.WARNING_MESSAGE);
         } else {
             try {
@@ -195,7 +199,7 @@ public class FRM_Login extends javax.swing.JFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         try {
             FRM_Clientes frmCliente = new FRM_Clientes();
-            chave = 'C';
+            setChave('C');
             frmCliente.setVisible(true);
             frmCliente.setEnabled(true);
             frmCliente.getBtnDel().setEnabled(false);
@@ -219,6 +223,10 @@ public class FRM_Login extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -262,7 +270,7 @@ public class FRM_Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel panelLogin;
-    private javax.swing.JTextField txtConta;
+    private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 
@@ -281,6 +289,48 @@ public class FRM_Login extends javax.swing.JFrame {
     }
 
     /**
+     * @return the loginDao
+     */
+    public LoginDAO getLoginDao() {
+        return loginDao;
+    }
+
+    /**
+     * @param loginDao the loginDao to set
+     */
+    public void setLoginDao(LoginDAO loginDao) {
+        this.loginDao = loginDao;
+    }
+
+    /**
+     * @return the chave
+     */
+    public static char getChave() {
+        return chave;
+    }
+
+    /**
+     * @param aChave the chave to set
+     */
+    public static void setChave(char aChave) {
+        chave = aChave;
+    }
+
+    /**
+     * @return the btnCadastrar
+     */
+    public javax.swing.JButton getBtnCadastrar() {
+        return btnCadastrar;
+    }
+
+    /**
+     * @param btnCadastrar the btnCadastrar to set
+     */
+    public void setBtnCadastrar(javax.swing.JButton btnCadastrar) {
+        this.btnCadastrar = btnCadastrar;
+    }
+
+    /**
      * @return the btnEntrar
      */
     public javax.swing.JButton getBtnEntrar() {
@@ -292,6 +342,20 @@ public class FRM_Login extends javax.swing.JFrame {
      */
     public void setBtnEntrar(javax.swing.JButton btnEntrar) {
         this.btnEntrar = btnEntrar;
+    }
+
+    /**
+     * @return the btnSair
+     */
+    public javax.swing.JButton getBtnSair() {
+        return btnSair;
+    }
+
+    /**
+     * @param btnSair the btnSair to set
+     */
+    public void setBtnSair(javax.swing.JButton btnSair) {
+        this.btnSair = btnSair;
     }
 
     /**
@@ -337,23 +401,23 @@ public class FRM_Login extends javax.swing.JFrame {
     }
 
     /**
-     * @return the txtConta
+     * @return the txtEmail
      */
-    public javax.swing.JTextField getTxtConta() {
-        return txtConta;
+    public javax.swing.JTextField getTxtEmail() {
+        return txtEmail;
     }
 
     /**
-     * @param txtConta the txtConta to set
+     * @param txtEmail the txtEmail to set
      */
-    public void setTxtConta(javax.swing.JTextField txtConta) {
-        this.txtConta = txtConta;
+    public void setTxtEmail(javax.swing.JTextField txtEmail) {
+        this.txtEmail = txtEmail;
     }
 
     /**
      * @return the txtSenha
      */
-    public javax.swing.JTextField getTxtSenha() {
+    public javax.swing.JPasswordField getTxtSenha() {
         return txtSenha;
     }
 

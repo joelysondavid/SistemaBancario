@@ -40,29 +40,37 @@ public class LoginDAO {
     }
 
     // método para validar login
-    public boolean validaLogin(long conta, String senha) throws SQLException {
+    public boolean validaLogin(String email, String senha) throws SQLException{
+        int codCli = validaEmail(email);
         // string com comando para select para verificar o login
-        String comando = "SELECT * FROM CONTA WHERE ID_CONTA = ? AND SENHA = ?;";
+        String comando = "SELECT * FROM CONTA WHERE ID_CLIENTE = ? AND SENHA = ?";
         // prepara o comando
         stm = conn.prepareStatement(comando);
         // seta os valores que serão informados
-        stm.setLong(1, conta);
+        stm.setInt(1, codCli);
         stm.setString(2, senha);
         // executa o comando com result set para trabalhar com retorno de dados do banco
         rs = stm.executeQuery();
         if (rs.next()) {
-            clienteValido(conta);
-            setIdConta(conta);
+            idConta = rs.getInt("ID_Conta");
+            clienteValido(idConta);
             return true;
         } else {
             return false;
         }
     }
-    public long validaEmail(String email) throws SQLException {
-        String comando = "SELECT * FROM CLIENTES WHERE EMAIL = ?";
+    public int validaEmail(String email) throws SQLException {
+        int codCliente = 0;
+        String comando = "SELECT * FROM CLIENTES WHERE EMAIL LIKE ?;";
         stm = conn.prepareStatement(comando);
         stm.setString(1, email);
         rs = stm.executeQuery();
+        if(rs.next()) {
+            setEmail(rs.getString("Email"));
+            setIdCliente(rs.getInt("ID_Cliente"));
+            codCliente = rs.getInt("ID_Cliente");
+        }
+        return codCliente;
     }
 
     // método para retornar dados do cliente dono do login

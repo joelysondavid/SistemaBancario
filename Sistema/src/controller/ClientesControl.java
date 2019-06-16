@@ -34,24 +34,31 @@ public class ClientesControl {
     }
 
     // incluir novo cliente
-    public void insertCliente() throws SQLException {
+    public boolean insertCliente() throws SQLException {
         if (cpfValido() == true) {
-            // instancia um novo objeto
-            cliente = new Clientes(frmClientes.getTxtNome().getText(), frmClientes.getTxtEndereco().getText(),
-                    frmClientes.getTxtEmail().getText(), Long.parseLong(frmClientes.getTxtCPF_CNPJ().getText().trim()),
-                    frmClientes.getTxtTelefone().getText().trim());
+            if (!clienteDAO.verificaEmail(frmClientes.getTxtEmail().getText())) {
+                // instancia um novo objeto
+                cliente = new Clientes(frmClientes.getTxtNome().getText(), frmClientes.getTxtEndereco().getText(),
+                        frmClientes.getTxtEmail().getText(), Long.parseLong(frmClientes.getTxtCPF_CNPJ().getText().trim()),
+                        frmClientes.getTxtTelefone().getText());
+                // chama o metodo para inserir cliente
+                clienteDAO.insertCliente(cliente);
+                // chama o método mostar clientes para atualizar a tabela
+                // mostrarClientes(); // recarrega a tabela
+                frmClientes.limparCampos(); // chama o método para limpar os campos
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(null, "Email já está cadastrado, tente com outro email!", "Aviso!", JOptionPane.WARNING_MESSAGE);
+                return false;
+            }
 
-            // chama o metodo para inserir cliente
-            clienteDAO.insertCliente(cliente);
-            // chama o método mostar clientes para atualizar a tabela
-            // mostrarClientes(); // recarrega a tabela
-            frmClientes.limparCampos(); // chama o método para limpar os campos
-       } else {
+        } else {
             JOptionPane.showMessageDialog(null, "CPF inválido, tente novamente!", "Aviso!", JOptionPane.WARNING_MESSAGE);
+            return false;
         }
     }
 
-    // deletar cliente
+// deletar cliente
     public void deleteCliete() throws SQLException {
         // codigo do Cliente
         int codigo = loginDao.getIdCliente();
@@ -104,7 +111,7 @@ public class ClientesControl {
         }
         return clientes;
     } // falta criar o segundo procurar clietne com cpfff
-*/
+     */
     public boolean clienteExiste() throws SQLException {
         // cria uma 'flag' para verificar se o cliente existe
         boolean verifica = clienteDAO.verificaCliente(Long.parseLong(frmClientes.getTxtCPF_CNPJ().getText()));
@@ -118,7 +125,7 @@ public class ClientesControl {
     }
 
     // mostrar todo os clientes
-   /* public ArrayList<Clientes> mostrarClientes() throws SQLException {
+    /* public ArrayList<Clientes> mostrarClientes() throws SQLException {
         // objeto clientes obtendo os clientes da base
         ArrayList<Clientes> clientes = clienteDAO.mostraClientes();
         // cria um objeto DefaultTableModel que recebe como valor nossa Jtable
@@ -131,19 +138,18 @@ public class ClientesControl {
         }
         return clientes;
     }*/
-
     // método seta cliente na tela
     public void mostraDados() throws SQLException {
         FRM_Login frmLogin = new FRM_Login();
 
-        if (frmLogin.chave == 'E') {
+        if (frmLogin.getChave() == 'E') {
             Clientes cliente = clienteDAO.procurarCliente(loginDao.getIdCliente());
             frmClientes.getTxtNome().setText(cliente.getNomeCliente());
             frmClientes.getTxtEmail().setText(cliente.getEmail());
             frmClientes.getTxtCPF_CNPJ().setText("" + cliente.getDocumento());
             frmClientes.getTxtTelefone().setText("" + cliente.getTelefone());
             frmClientes.getTxtEndereco().setText(cliente.getEnderecoCliente());
-        } else if (frmLogin.chave == 'C') {
+        } else if (frmLogin.getChave() == 'C') {
             frmClientes.getTxtNome().setText("");
             frmClientes.getTxtEmail().setText("");
             frmClientes.getTxtCPF_CNPJ().setText("");

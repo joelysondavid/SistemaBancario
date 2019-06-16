@@ -218,7 +218,7 @@ public class FRM_Home extends javax.swing.JFrame {
         if (op == 0) {
             getFrmLogin().setVisible(true);
             getFrmLogin().setEnabled(true);
-            getFrmLogin().chave = ' ';
+            getFrmLogin().setChave(' ');
             this.setVisible(false);
             this.setEnabled(false);
         }
@@ -233,6 +233,7 @@ public class FRM_Home extends javax.swing.JFrame {
             frmClientes.getBtnCancelar().setEnabled(false);
             frmClientes.getBtnCadastrar().setEnabled(false);
             frmClientes.getTxtCPF_CNPJ().setEnabled(false);
+            frmClientes.getBtnAdicionar().setVisible(false);
             this.setVisible(false);
             this.setEnabled(false);
         } catch (SQLException ex) {

@@ -27,7 +27,7 @@ public class FRM_Clientes2 extends javax.swing.JFrame {
     public FRM_Clientes2() throws SQLException {
         initComponents();
         // clientesCtrl.mostrarClientes();
-        if (frmLogin.chave == 'E') {
+        if (frmLogin.getChave() == 'E') {
             clientesCtrl.mostraDados();
         }
         // txtCPF_CNPJ.setDocument(new ApenasNumeros());
