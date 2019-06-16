@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.InputMismatchException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Clientes;
@@ -35,7 +36,7 @@ public class ClientesControl {
 
     // incluir novo cliente
     public boolean insertCliente() throws SQLException {
-         if (cpfValido() == true) {
+        if (cpfValido() == true) {
             if (!clienteDAO.verificaEmail(frmClientes.getTxtEmail().getText())) {
                 // instancia um novo objeto
                 cliente = new Clientes(frmClientes.getTxtNome().getText(), frmClientes.getTxtEndereco().getText(),
@@ -162,52 +163,64 @@ public class ClientesControl {
     // método para validar CPF
     public boolean cpfValido(/*String cpf*/) {
         String cpf = frmClientes.getTxtCPF_CNPJ().getText();
-        // caso o cpf seja com os 11 digitos iguais ele é falso
-        if ((!cpf.equals("11111111111") || !cpf.equals("22222222222")
-                || !cpf.equals("33333333333") || !cpf.equals("44444444444")
-                || !cpf.equals("55555555555") || !cpf.equals("66666666666")
-                || !cpf.equals("77777777777") || !cpf.equals("88888888888")
-                || !cpf.equals("99999999999") || !cpf.equals("00000000000")) && cpf.length() == 11) {
-            // variaveis que iremos utilizar
-            int n; // para comparar com o resto
-            int result = 0; // resultado da primeira multiplicação com as somas
-            int rest; // resto da divisão
-            int num = 0; // digito para
-            int mult = 10; // peso das multiplicações que serão realizadas no for abaixo
-            for (int i = 0; i < 9; i++) {
-                // num recebe valor numero do caracter da string da posição de (i) - 48 para transformar o caracter em inteiro
-                num = cpf.charAt(i) - 48;
-                result += num * mult; // recebe e incrementa o resultado do numero gerado a cima multiplicado pelo peso da multiplicação
-                mult--; // decrementa a variavel mult
-            }
-            // pega o resto da divisão do resultado da somatoria dos digitos por 11
-            rest = (result * 10) % 11;
-            n = cpf.charAt(9) - 48;
-            if (rest == n) {
-                // caso o resultado seja 2 significa que o cpf passou na validação do primeiro digito
-                // A validação do segundo dígito é semelhante à primeira, porém vamos 
-                // considerar os 9 primeiros dígitos, mais o primeiro dígito verificador, 
-                // e vamos multiplicar esses 10 números pela sequencia decrescente de 11 a 2
-                mult = 11;
-                result = 0; // seta variável result como 0
-                for (int i = 0; i < 10; i++) {
-                    // num recebe valor numero do caracter da string da posição de (i) - 48 para transformar o caracter em inteiro
-                    num = cpf.charAt(i) - 48;
-                    result += num * mult; // recebe e incrementa o resultado do numero gerado a cima multiplicado pelo peso da multiplicação
-                    mult--; // decrementa a variavel mult
-                }
-
-                rest = (result * 10) % 11;
-                n = cpf.charAt(10) - 48;
-                if (rest == n) {
-                    return true;
-                } else {
-                    return false;
-                }
-            } else {
-                return false;
-            }
+        // considera-se erro CPF's formados por uma sequencia de numeros iguais
+        if (cpf.equals("00000000000")
+                || cpf.equals("11111111111")
+                || cpf.equals("22222222222") || cpf.equals("33333333333")
+                || cpf.equals("44444444444") || cpf.equals("55555555555")
+                || cpf.equals("66666666666") || cpf.equals("77777777777")
+                || cpf.equals("88888888888") || cpf.equals("99999999999")
+                || (cpf.length() != 11)) {
+            return (false);
         }
-        return false;
+
+        char dig10, dig11;
+        int sm, i, r, num, peso;
+
+        // "try" - protege o codigo para eventuais erros de conversao de tipo (int)
+        try {
+            // Calculo do 1o. Digito Verificador
+            sm = 0;
+            peso = 10;
+            for (i = 0; i < 9; i++) {
+                // converte o i-esimo caractere do CPF em um numero:
+                // por exemplo, transforma o caractere '0' no inteiro 0         
+                // (48 eh a posicao de '0' na tabela ASCII)         
+                num = (int) (cpf.charAt(i) - 48);
+                sm = sm + (num * peso);
+                peso = peso - 1;
+            }
+
+            r = 11 - (sm % 11);
+            if ((r == 10) || (r == 11)) {
+                dig10 = '0';
+            } else {
+                dig10 = (char) (r + 48); // converte no respectivo caractere numerico
+            }
+            // Calculo do 2o. Digito Verificador
+            sm = 0;
+            peso = 11;
+            for (i = 0; i < 10; i++) {
+                num = (int) (cpf.charAt(i) - 48);
+                sm = sm + (num * peso);
+                peso = peso - 1;
+            }
+
+            r = 11 - (sm % 11);
+            if ((r == 10) || (r == 11)) {
+                dig11 = '0';
+            } else {
+                dig11 = (char) (r + 48);
+            }
+
+            // Verifica se os digitos calculados conferem com os digitos informados.
+            if ((dig10 == cpf.charAt(9)) && (dig11 == cpf.charAt(10))) {
+                return (true);
+            } else {
+                return (false);
+            }
+        } catch (InputMismatchException erro) {
+            return (false);
+        }
     }
 }
